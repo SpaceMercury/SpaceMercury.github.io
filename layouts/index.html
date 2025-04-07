@@ -1,1 +1,189 @@
-test
+{{ define "main" }}
+
+<style>
+    /* Add spacing before hero section */
+    .hero {
+        margin-top: 30px;
+    }
+    
+    /* Hero section layout with image on left, name and terminal on right */
+    .hero .hero-profile-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: left;
+        margin-bottom: 20px;
+    }
+    
+    .hero .profile-image {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #fff;
+        margin-right: 20px;
+    }
+    
+    .hero .hero-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero .hero-title {
+        text-align: left;
+        margin: 0 0 15px 0;
+    }
+    
+    .hero .hero-terminal {
+        margin-top: 5px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.271);
+        border-radius: 4px;
+    }
+</style>
+
+<!-- Hero Section Start -->
+<header class="hero">
+    <div class="hero-content">
+        <div class="hero-profile-container">
+            <img src="{{ .Site.Params.profileImage | default "/images/profile.jpg" }}" alt="Profile Photo" class="profile-image">
+            <div class="hero-info">
+                <div>
+                    <h1 class="hero-title">{{ .Site.Params.author | default "Your Name" }}</h1>
+                </div>
+                <div style="margin-bottom: 10px;"></div>
+                <div class="hero-terminal">
+                    <span id="typed"></span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Hero Section End -->
+
+<!-- Typed.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var options = {
+            strings: [
+                "> echo 'Welcome to my site!!'",
+                "> docker compose up -d",
+                "> :(){ :|:& };: ",
+                "> sudo rm -rf / --no-preserve-root", // (classic joke)
+                "> git commit -m 'looks like it's working'",
+                "> sudo apt-get update",  
+                "> git commit -m 'who wrote this garbage' --author='me'",
+                "> npm run build",
+                "> git commit -m 'nevermind it doesn't work'",
+            ],
+            typeSpeed: 60,
+            backSpeed: 25,
+            backDelay: 2000,
+            loop: true,
+            showCursor: true,
+            cursorChar: "_"
+        };
+        new Typed("#typed", options);
+    });
+</script>
+
+<section id="about">
+    <h1>About Me</h1>
+    <div class="about-content">
+        <p>
+            {{ .Site.Params.aboutShort | default "I'm a passionate developer focused on creating efficient and user-friendly web applications. With expertise in various programming languages and frameworks, I enjoy solving complex problems and building intuitive interfaces." }}
+        </p>
+        <p>
+            Currently working as {{ .Site.Params.currentRole | default "a software developer" }} at {{ .Site.Params.currentCompany | default "Company Name" }}, where I specialize in {{ .Site.Params.specialization | default "web development and UI/UX design" }}.
+        </p>
+        <p><a href="/about/" class="button">More About Me →</a></p>
+    </div>
+</section>
+
+<section id="what-i-do">
+    <h1>What I Do</h1>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>{{ .Site.Params.skill1Title | default "Web Development" }}</h3>
+            <p>{{ .Site.Params.skill1Desc | default "Creating responsive, accessible web applications using modern technologies." }}</p>
+        </div>
+        <div class="skill-card">
+            <h3>{{ .Site.Params.skill2Title | default "UI/UX Design" }}</h3>
+            <p>{{ .Site.Params.skill2Desc | default "Designing intuitive interfaces with focus on user experience." }}</p>
+        </div>
+        <div class="skill-card">
+            <h3>{{ .Site.Params.skill3Title | default "Content Creation" }}</h3>
+            <p>{{ .Site.Params.skill3Desc | default "Writing technical blog posts and creating educational content." }}</p>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+    <h1>Featured Projects</h1>
+    <div class="portfolio-grid">
+        {{ range first 3 (where .Site.RegularPages "Type" "projects") }}
+        <div class="project-card">
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            {{ with .Params.thumbnail }}
+                <img src="{{ . }}" alt="{{ $.Title }}" class="project-image">
+            {{ end }}
+            <p>{{ .Summary }}</p>
+            <a href="{{ .Permalink }}" class="button">View Project →</a>
+        </div>
+        {{ end }}
+    </div>
+    <p class="section-link"><a href="/projects/">View All Projects →</a></p>
+</section>
+
+
+<section id="blog">
+    <h1>Latest Posts</h1>
+    <div class="posts-list">
+    {{ with .Site.GetPage "/posts" }}
+        {{ range first 3 (sort .Data.Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
+            <div class="post">
+                <p>
+                    <div class="date">{{ .PublishDate.Format "Jan. 2, 2006" }}</div>
+                    <h2><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h2>
+                    {{ .Summary }}
+                </p>
+                <a href="{{ .Permalink }}" class="read-more">Read More →</a>
+            </div>    
+        {{ end }}
+    {{ end }}
+    </div>
+    <p class="section-link"><a href="/posts/">All Posts →</a></p>
+</section>
+
+<section id="photos">
+    <h1>Latest Photos</h1>
+    <div class="image-grid">
+    {{ with .Site.GetPage "/photos" }}
+        {{ range first 3 (sort .Data.Pages "Date" "desc")}}
+            <a href="{{ .Permalink }}" title="{{ .Title }}" class="photo-item">
+            {{ $image := .Page.Resources.GetMatch .Params.image }}
+            {{ with $image }}
+                {{ $thumb := .Resize "400x" }}
+                <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" class="img-responsive">
+                <div class="photo-caption">{{ $.Title }}</div>
+            {{end}}
+            </a>
+        {{ end }}
+    {{ end }}
+    </div>
+    <p class="section-link"><a href="/photos/">View All Photos →</a></p>
+</section>
+
+<section id="contact">
+    <h1>Get In Touch</h1>
+    <p>{{ .Site.Params.contactText | default "Interested in working together? Feel free to reach out to me directly." }}</p>
+    <p class="contact-email"><a href="mailto:{{ .Site.Params.email | default "your.email@example.com" }}">{{ .Site.Params.email | default "your.email@example.com" }}</a></p>
+    <div class="contact-links">
+        {{ range .Site.Params.contactLinks }}
+            <a href="{{ .url }}" class="button" target="_blank" rel="noopener">{{ .name }}</a>
+        {{ end }}
+    </div>
+</section>
+
+{{ end }}

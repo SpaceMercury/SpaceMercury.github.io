@@ -1,3 +1,56 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseurl = "https://spacemercury.github.io/"
+title = "spacemercury.github.io"
+theme = "hugo-theme-console"
+languageCode = "en-us"
+tagline = "daboss"
+
+
+
+[params]
+
+
+
+  author = "Pol Fuentes"
+  profileImage = "images/profile.jpg"
+  email = "pol.fuentescamacho@epfl.ch"
+
+  [[params.socialLinks]]
+  name = "GitHub"
+  url = "https://github.com/yourusername"
+  
+  [[params.socialLinks]]
+  name = "LinkedIn"
+  url = "https://linkedin.com/in/yourusername"
+  
+  [[params.socialLinks]]
+  name = "Twitter"
+  url = "https://twitter.com/yourusername"
+  
+  # Add more social links as needed
+  [[params.socialLinks]]
+  name = "Instagram"
+  url = "https://instagram.com/yourusername"
+
+
+  # Cutting off the page title to two chars for mobile (console-demo -> co)
+  titleCutting = true
+
+  # Set the animation style -- https://animate.style/
+  # To disable animations, please remove or comment animationStyle parameter
+  animateStyle = "animated zoomIn fast" 
+
+  [[params.navlinks]]
+  name = "cv/"
+  url = "cv/"
+
+  [[params.navlinks]]
+  name = "about/"
+  url = "about/"
+
+  [[params.navlinks]]
+  name = "posts/"
+  url = "posts/"
+  
+  [[params.navlinks]]
+  name = "photos/"
+  url = "photos/"
