@@ -10,9 +10,13 @@ tagline = "daboss"
 
 
 
-  author = "Pol Fuentes"
+  author = "Pol Fuentes Camacho"
   profileImage = "images/profile.jpg"
   email = "pol.fuentescamacho@epfl.ch"
+  aboutShort = "Hey, I’m Pol — a computer science graduate student who writes code, breaks things (on purpose), and builds systems that sometimes even work. I am currently pursuing a Master's Degree in Computer Science and Cybersecurity at ETH and EPFL."
+  currentCompany = "Currently working at the CYD Campus Lausanne (armasuisse), building low level high speed traffic classification systems."
+
+  cvPdfPath = "pdfs/resume2.pdf"
 
   [[params.socialLinks]]
   name = "GitHub"
