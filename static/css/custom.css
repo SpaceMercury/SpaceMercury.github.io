@@ -34,3 +34,39 @@
     margin: auto;
     box-shadow: 0 0 10px rgba(0,255,0,0.3);
 }
+
+.posts-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .posts-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .post-card {
+    display: block;
+    background: var(--background-alt, #f9f9f9);
+    padding: 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .post-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .post-card h3 {
+    margin-top: 0;
+  }
+  
+  .post-card p {
+    margin-bottom: 0;
+    color: #555;
+  }
+  
