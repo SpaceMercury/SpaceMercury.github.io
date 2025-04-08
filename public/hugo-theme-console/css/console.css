@@ -42,8 +42,21 @@
     --global-line-height: 1.6em;
     --page-width: 70em;
     --display-h1-decoration: 1;
+
+    --background-color: #222225;
+	--page-width: 60em;
+	--font-color: #e8e9ed;
+	--invert-font-color: #222225;
+	--secondary-color: #a3abba;
+	--tertiary-color: #a3abba;
+	--primary-color: #62c4ff;
+	--error-color: #ff3c74;
+	--progress-bar-background: #3f3f44;
+	--progress-bar-fill: #62c4ff;
+	--code-bg-color: #3f3f44;
 }
 
+/*
 @media (prefers-color-scheme: dark) {
     :root {
 	--background-color: #222225;
@@ -73,6 +86,7 @@
 	--code-bg-color:#e8eff2;
     }
 }
+*/
 
 @media only screen and (max-width: 850px) {
     :root {
