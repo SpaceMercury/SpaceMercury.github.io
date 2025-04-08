@@ -2,7 +2,6 @@ baseurl = "https://spacemercury.github.io/"
 title = "spacemercury.github.io"
 theme = "hugo-theme-console"
 languageCode = "en-us"
-tagline = "daboss"
 
 
 
@@ -17,8 +16,8 @@ tagline = "daboss"
   currentCompany = "Currently working at the CYD Campus Lausanne (armasuisse), building low level high speed traffic classification systems."
 
   cvPdfPath = "pdfs/resume2.pdf"
-  linkedin = "https://linkedin.com/in/yourusername"
-  github = "https://github.com/yourusername"
+  linkedin = "https://linkedin.com/in/pol-fuentes-camacho"
+  github = "https://github.com/spacemercury"
 
 
   [[params.socialLinks]]
