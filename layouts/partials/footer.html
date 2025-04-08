@@ -1,0 +1,39 @@
+<div class="footer">
+    <div class="footer-text">
+        Powered by <a href="https://gohugo.io/">Hugo</a> with the console 
+        <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Theme</a>. Made with ❤️ by <a href="https://github.com/spacemercury/">SpaceMercury</a>.
+    </div>
+    <div class="socials">
+        {{ if .Site.Params.github }}
+        <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        {{ end }}
+        {{ if .Site.Params.linkedin }}
+        <a href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        {{ end }}
+    </div>
+</div>
+
+<style>
+    /* Set up the footer as a flex container */
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap; /* optional: allows wrapping on smaller screens */
+        padding: 10px;
+    }
+    
+    /* Increase the social icons size */
+    .socials {
+        font-size: 1.5em;
+    }
+    
+    /* Add spacing between social icons */
+    .socials a {
+        margin-left: 10px;
+    }
+</style>

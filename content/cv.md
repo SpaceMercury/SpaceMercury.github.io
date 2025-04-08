@@ -26,12 +26,20 @@ description: "Professional background, skills, and experience"
 
 ## Work Experience
 
+**Armasuisse** | Lausanne, Switzerland | February 2025 - Ongoing
 
-## Projects
+- Led the design and development of a high-speed network traffic classification system using machine learning, achieving real-time classification at 75+ Gbps with over 90% accuracy.
+
+- Designed and implemented a full data pipeline—from realistic traffic generation and capture to classification and visualization.
+
+- Built a scalable ML-based classification framework with C++, CUDA, and DPDK, optimized for low-latency performance on high-throughput links.
+
+- Developed the data architecture using Apache Kafka, InfluxDB, and Grafana, enabling live monitoring and analysis.
+
+- Delivered a robust system capable of handling production-level loads, paving the way for AI-driven intrusion detection at the core network level.
 
 
 
-## Skills
 
 
 

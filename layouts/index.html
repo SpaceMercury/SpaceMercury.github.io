@@ -95,27 +95,9 @@
             {{ .Site.Params.aboutShort | default "I'm a passionate developer focused on creating efficient and user-friendly web applications. With expertise in various programming languages and frameworks, I enjoy solving complex problems and building intuitive interfaces." }}
         </p>
         <p>
-            Currently working as {{ .Site.Params.currentRole | default "a software developer" }} at {{ .Site.Params.currentCompany | default "Company Name" }}, where I specialize in {{ .Site.Params.specialization | default "web development and UI/UX design" }}.
+            Currently working as {{ .Site.Params.currentCompany | default "a software developer" }}
         </p>
         <p><a href="/about/" class="button">More About Me →</a></p>
-    </div>
-</section>
-
-<section id="what-i-do">
-    <h1>What I Do</h1>
-    <div class="skills-grid">
-        <div class="skill-card">
-            <h3>{{ .Site.Params.skill1Title | default "Web Development" }}</h3>
-            <p>{{ .Site.Params.skill1Desc | default "Creating responsive, accessible web applications using modern technologies." }}</p>
-        </div>
-        <div class="skill-card">
-            <h3>{{ .Site.Params.skill2Title | default "UI/UX Design" }}</h3>
-            <p>{{ .Site.Params.skill2Desc | default "Designing intuitive interfaces with focus on user experience." }}</p>
-        </div>
-        <div class="skill-card">
-            <h3>{{ .Site.Params.skill3Title | default "Content Creation" }}</h3>
-            <p>{{ .Site.Params.skill3Desc | default "Writing technical blog posts and creating educational content." }}</p>
-        </div>
     </div>
 </section>
 
@@ -148,7 +130,6 @@
                     <h2><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h2>
                     {{ .Summary }}
                 </p>
-                <a href="{{ .Permalink }}" class="read-more">Read More →</a>
             </div>    
         {{ end }}
     {{ end }}
@@ -156,24 +137,8 @@
     <p class="section-link"><a href="/posts/">All Posts →</a></p>
 </section>
 
-<section id="photos">
-    <h1>Latest Photos</h1>
-    <div class="image-grid">
-    {{ with .Site.GetPage "/photos" }}
-        {{ range first 3 (sort .Data.Pages "Date" "desc")}}
-            <a href="{{ .Permalink }}" title="{{ .Title }}" class="photo-item">
-            {{ $image := .Page.Resources.GetMatch .Params.image }}
-            {{ with $image }}
-                {{ $thumb := .Resize "400x" }}
-                <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" class="img-responsive">
-                <div class="photo-caption">{{ $.Title }}</div>
-            {{end}}
-            </a>
-        {{ end }}
-    {{ end }}
-    </div>
-    <p class="section-link"><a href="/photos/">View All Photos →</a></p>
-</section>
+
+
 
 <section id="contact">
     <h1>Get In Touch</h1>

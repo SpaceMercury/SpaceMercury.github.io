@@ -8,7 +8,7 @@ tagline = "daboss"
 
 [params]
 
-
+  custom_head = ["custom_head.html"]
 
   author = "Pol Fuentes Camacho"
   profileImage = "images/profile.jpg"
@@ -17,6 +17,9 @@ tagline = "daboss"
   currentCompany = "Currently working at the CYD Campus Lausanne (armasuisse), building low level high speed traffic classification systems."
 
   cvPdfPath = "pdfs/resume2.pdf"
+  linkedin = "https://linkedin.com/in/yourusername"
+  github = "https://github.com/yourusername"
+
 
   [[params.socialLinks]]
   name = "GitHub"

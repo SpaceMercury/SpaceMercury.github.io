@@ -4,6 +4,13 @@
     
         
         <url>
+            <loc>http://localhost:1313/posts/arrstack/</loc>
+            <lastmod>2025-04-07T22:53:44+02:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
             <loc>http://localhost:1313/posts/</loc>
             <lastmod>2025-04-07T22:53:44+02:00</lastmod>
         </url>

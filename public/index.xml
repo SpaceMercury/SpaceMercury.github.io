@@ -6,14 +6,21 @@
     <description>Recent content on spacemercury.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Apr 2025 22:53:44 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arrstack</title>
+      <link>http://localhost:1313/posts/arrstack/</link>
+      <pubDate>Mon, 07 Apr 2025 22:53:44 +0200</pubDate>
+      <guid>http://localhost:1313/posts/arrstack/</guid>
+      <description>Need a fast and easy way to download Linux ISOs?&#xA;The arrstack is a lightweight tool that lets you find, download, and manage Linux distributions in just a few clicks.&#xA;No clutter. No hassle. Just ISOs.&#xA;Jokes aside the arrstack is a set of aplications that connect together to provide a simple way to download and manage content.&#xA;Quick Setup Here is my docker compose file to run the stack:</description>
+    </item>
     <item>
       <title></title>
       <link>http://localhost:1313/cv/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/cv/</guid>
-      <description>Pol Fuentes Location: Switzerland&#xA;Email: pol.fuentescamacho@epfl.ch&#xA;Website: pol.com&#xA;LinkedIn: linkedin.com&#xA;GitHub: github.com&#xA;Education Master of Science in Computer Science and Cybersecurity ETH &amp;amp; EPFL | Zurich &amp;amp; Lausanne, Switzerland | 2024 - Ongoing&#xA;Relevant coursework: Decentralized Systems, Applied Data Analysis Bachelor of Science in Computer Science EPFL | Lausanne, Switzerland | 2021 - 2024&#xA;Relevant coursework: Data Structures, Computer Networks, Database Systems Work Experience Projects Skills Languages English (Native) Spanish (Native) Catalan (Native) French (Native) German (Basic) Interests Biking, Hiking, Photography, Skiing</description>
+      <description>Pol Fuentes Location: Switzerland&#xA;Email: pol.fuentescamacho@epfl.ch&#xA;Website: pol.com&#xA;LinkedIn: linkedin.com&#xA;GitHub: github.com&#xA;Education Master of Science in Computer Science and Cybersecurity ETH &amp;amp; EPFL | Zurich &amp;amp; Lausanne, Switzerland | 2024 - Ongoing&#xA;Relevant coursework: Decentralized Systems, Applied Data Analysis Bachelor of Science in Computer Science EPFL | Lausanne, Switzerland | 2021 - 2024&#xA;Relevant coursework: Data Structures, Computer Networks, Database Systems Work Experience Armasuisse | Lausanne, Switzerland | February 2025 - Ongoing</description>
     </item>
     <item>
       <title></title>
