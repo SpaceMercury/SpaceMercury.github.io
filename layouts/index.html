@@ -7,30 +7,36 @@
     }
     
     /* Hero section layout with image on left, name and terminal on right */
-    .hero .hero-profile-container {
+  /* ... existing code ... */
+  .hero .hero-profile-container {
         display: flex;
-        align-items: flex-start;
+        align-items: center;  /* Change from flex-start to center */
         justify-content: left;
         margin-bottom: 20px;
     }
     
     .hero .profile-image {
         width: 140px;
-        height: 140px;
+        height: 180px;
         object-fit: cover;
         border-radius: 8px;
         border: 1px solid #fff;
         margin-right: 20px;
+        flex-shrink: 0;
     }
+/* ... existing code ... */
     
     .hero .hero-info {
         display: flex;
         flex-direction: column;
     }
+
     
     .hero .hero-title {
         text-align: left;
-        margin: 0 0 15px 0;
+        margin: 10px 0 5px 0;
+        font-size: 2em; /* Adjust the size as needed */
+
     }
     
     .hero .hero-terminal {
@@ -39,6 +45,29 @@
         background-color: rgba(0, 0, 0, 0.264);
         border-radius: 4px;
     }
+
+
+        
+    /* In case the theme uses pseudo-elements for underlines */
+    section h1::after {
+        content: none !important;
+        
+    }
+
+    /* New styles: make section headings distinctive and orange */
+    section h1 {
+        border-bottom: 3px solid rgb(189, 123, 0);
+        padding-bottom: 1px;
+
+    }
+
+        /* Optional: add top margin to paragraphs following headings */
+        section p {
+        margin-top: 20px;
+    }
+
+
+
 </style>
 
 <!-- Hero Section Start -->
@@ -48,7 +77,7 @@
             <img src="{{ .Site.Params.profileImage | default "/images/profile.jpg" }}" alt="Profile Photo" class="profile-image">
             <div class="hero-info">
                 <div>
-                    <h1 class="hero-title">{{ .Site.Params.author | default "Your Name" }}</h1>
+                    <h2 class="hero-title">{{ .Site.Params.author | default "Your Name" }}</h2>
                 </div>
                 <div style="margin-bottom: 10px;"></div>
                 <div class="hero-terminal">
@@ -87,6 +116,8 @@
         new Typed("#typed", options);
     });
 </script>
+
+
 
 <section id="about">
     <h1>About Me</h1>
@@ -128,7 +159,7 @@
                 <p>
                     <div class="date">{{ .PublishDate.Format "Jan. 2, 2006" }}</div>
                     <h2><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h2>
-                    {{ .Summary }}
+                    {{ .Summary  | truncate 150}}
                 </p>
             </div>    
         {{ end }}
