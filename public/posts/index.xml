@@ -6,8 +6,15 @@
     <description>Recent content in Posts on spacemercury.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Apr 2025 22:53:44 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 10 Apr 2025 15:53:44 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>QUIC Traffic, explained</title>
+      <link>http://localhost:1313/posts/quic/</link>
+      <pubDate>Thu, 10 Apr 2025 15:53:44 +0200</pubDate>
+      <guid>http://localhost:1313/posts/quic/</guid>
+      <description>In the constant race to speed up the web, Google quietly rolled out a new transport protocol in 2012—QUIC (Quick UDP Internet Connections). Over the years, it has evolved from an experimental feature to a backbone technology used by services like Chrome, YouTube, and Google Search.&#xA;QUIC replaces the traditional TCP + TLS stack with a single protocol built directly on top of UDP. This shift gives QUIC a major performance edge.</description>
+    </item>
     <item>
       <title>Arrstack</title>
       <link>http://localhost:1313/posts/arrstack/</link>

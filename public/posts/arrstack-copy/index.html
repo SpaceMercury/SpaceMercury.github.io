@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>spacemercury.github.io/posts/arrstack-copy/</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <link rel="stylesheet" href="http://localhost:1313/hugo-theme-console/css/terminal-0.7.4.min.css">
+    <link rel="stylesheet" href="http://localhost:1313/hugo-theme-console/css/animate-4.1.1.min.css">
+    <link rel="stylesheet" href="http://localhost:1313/hugo-theme-console/css/console.css">
+    
+    
+      <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+       <meta property="og:title" content="Arrstac33k" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/arrstack-copy/" /><meta property="article:published_time" content="2025-03-07T22:53:44+02:00" />
+
+
+
+<meta name="twitter:title" content="Arrstac33k"/>
+<meta name="twitter:description" content="Need a fast and easy way to download Linux ISOs?
+The arrstack is a lightweight tool that lets you find, download, and manage Linux distributions in just a few clicks.
+No clutter. No hassle. Just ISOs.
+Jokes aside the arrstack is a set of aplications that connect together to provide a simple way to download and manage content.
+Quick Setup Here is my docker compose file to run the stack:"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>spacemercury.github.io</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    
+</head></head>
+<body class="terminal">
+    <div class="container">
+        <div class="terminal-nav">
+
+          <header class="terminal-logo">
+            <div class="logo terminal-prompt">
+              
+              
+          
+              <a href="http://localhost:1313/" class="no-style ">spacemercury.github.io</a>:~# 
+              <a href='http://localhost:1313/posts'>posts</a>/<a href='http://localhost:1313/posts/arrstack-copy'>arrstack-copy</a>/</div>
+            
+            </header>
+          <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li><a href="http://localhost:1313/cv/" typeof="ListItem">cv/</a></li>
+                
+                <li><a href="http://localhost:1313/about/" typeof="ListItem">about/</a></li>
+                
+                <li><a href="http://localhost:1313/posts/" typeof="ListItem">posts/</a></li>
+                
+                <li><a href="http://localhost:1313/photos/" typeof="ListItem">photos/</a></li>
+                
+            </ul>
+          </nav>
+        </div>
+    </div>
+
+    <div class="container " >
+        
+<h1>Arrstac33k</h1>
+
+
+
+Mar. 7, 2025
+
+
+<br/><br/>
+<p>Need a fast and easy way to download Linux ISOs?<br>
+The <strong>arrstack</strong> is a lightweight tool that lets you find, download, and manage Linux distributions in just a few clicks.</p>
+<p>No clutter. No hassle. Just ISOs.</p>
+<p>Jokes aside the arrstack is a set of aplications that connect together to provide a simple way to download and manage content.</p>
+<h1 id="quick-setup">Quick Setup</h1>
+<p>Here is my docker compose file to run the stack:</p>
+<p>To run just make sure to input your own values in the envs and then run the docker in daemon.</p>
+<p>You then have to go through the setup of each application, but it is pretty straightforward. Make an account for each of the applications and then you can start using it.</p>
+<p>To connect the applications together like sonarr radarr prowlarr and jellyseer you have to add the api key of each application in the others.</p>
+<p>There are plenty of guides on how to do this, so I won&rsquo;t go into detail here.</p>
+<p>I will just rapidly go through the applications and what they do.</p>
+<h1 id="applications">Applications</h1>
+<h2 id="sonarr">Sonarr</h2>
+<p>Sonarr is the application that manages your TV (ISOs). It will download the episodes for you and keep track of what you have watched.</p>
+<h2 id="radarr">Radarr</h2>
+<p>Radarr is the application that manages your longer (movie ISOs). It will download the movies for you and keep track of what you have watched.</p>
+<h2 id="prowlarr">Prowlarr</h2>
+<p>Prowlarr is the application that manages your indexers. It will search for the content you want and download it for you.</p>
+<h2 id="jellyfin">Jellyfin</h2>
+<p>Jellyfin is the application that manages your media library. It will organize your content and make it available to you on all your devices.</p>
+<h2 id="flaresolverr">Flaresolverr</h2>
+<p>Flaresolverr is a service that allows you to bypass Cloudflare&rsquo;s anti-bot protection. It is used by some indexers to protect their content.</p>
+<h2 id="jellyseerr">Jellyseerr</h2>
+<p>Jellyseer is an application that connects to radarr and sonarr and allows you to manage and request content from a nice interface. It is used to manage your content and make it available to you on all your devices.</p>
+<h2 id="heimdall">Heimdall</h2>
+<p>Heimdall is a dashboard that allows you to manage your applications and access them from a single place. It is used to manage your content and make it available to you on all your devices.</p>
+<h2 id="portainer-optional">Portainer (optional)</h2>
+<p>Portainer is a web interface for managing your docker containers. It is used to manage your content and make it available to you on all your devices. It&rsquo;s optional but I highly recommend adding it to your stack.</p>
+
+
+
+        <div class="footer">
+    <div class="footer-text">
+        Powered by <a href="https://gohugo.io/">Hugo</a> with the console 
+        <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Theme</a>. Made with ❤️ by <a href="https://github.com/spacemercury/">SpaceMercury</a>.
+    </div>
+    <div class="socials">
+        
+        <a href="https://github.com/spacemercury" target="_blank" rel="noopener" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        
+        
+        <a href="https://linkedin.com/in/pol-fuentes-camacho" target="_blank" rel="noopener" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        
+    </div>
+</div>
+
+<style>
+     
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;  
+        padding: 10px;
+    }
+    
+     
+    .socials {
+        font-size: 1.5em;
+    }
+    
+     
+    .socials a {
+        margin-left: 10px;
+    }
+</style>
+    </div>
+
+  </body>
+</html>
+
