@@ -70,3 +70,29 @@
     color: #555;
   }
   
+
+  .menu-toggle {
+    display: none;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: inherit;
+    margin-left: 1em;
+  }
+  
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: inline-block;
+    }
+    .terminal-menu ul {
+      display: none;
+    }
+    .dropdown {
+      display: flex;
+      flex-direction: column;
+    }
+    .dropdown.hidden {
+      display: none;
+    }
+  }
+  
