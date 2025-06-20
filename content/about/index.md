@@ -1,19 +1,20 @@
 # Hi, I'm Pol
-A cybersecurity researcher and software engineer currently working in Switzerland. My journey in technology has taken me across different countries and cultures, shaping both my professional expertise and personal perspective.
+I'm a cybersecurity researcher and software engineer based in Switzerland. 
 
-# Current Work
-I am currently a researcher at the Cyber Defence Campus (CYD Campus) within armasuisse, Switzerland's federal agency for defense procurement and technology. My work centers on advanced cybersecurity research, where I tackle complex security challenges that require both technical depth and innovative approaches.
+# What I Do
+I work as a researcher at the Cyber Defence Campus (CYD Campus), part of armasuisse, Switzerland's federal agency for defense and technology.
 
-My primary research focus is Encrypted Traffic Analysis (ETA) - a cutting-edge field that examines network traffic patterns without decrypting the content, preserving privacy while detecting potential threats. I've designed and implemented a high-performance analysis pipeline capable of operating at 100Gbps network speeds, which involves:
+One of my main areas of interest is Encrypted Traffic Analysis (ETA). My work includes:
 
-- Generating realistic encrypted network traffic datasets
-- Capturing and processing data on specialized high-speed NICs
-- Developing low-level code using the Data Plane Development Kit (DPDK) for efficient packet processing
-- Implementing machine learning algorithms optimized for real-time traffic classification
-- Engineering the entire solution with performance-critical C/C++ and CUDA to maintain throughput at scale
-This research bridges theoretical security concepts with practical implementations that can withstand the demands of modern network infrastructure. If you're interested in the technical details behind this work, check out my article on *[DPDK!](https://spacemercury.github.io/posts/dpdk)*.
+- Creating realistic encrypted network traffic datasets
+- Capturing and processing data using high-speed network cards
+- Writing low-level code with the Data Plane Development Kit (DPDK) for efficient packet handling
+- Developing machine learning models for real-time traffic classification
+- Building the entire solution with performance-critical C/C++ and CUDA to handle massive network speeds
+- Leveraging tools like nix for reproducibility
 
-# Beyond Work
-When I'm not immersed in code or security research, you can find me exploring the Swiss outdoors. I'm an avid cyclist and skier, taking full advantage of Switzerland's mountainous terrain. These activities provide both physical challenge and mental clarity.
 
-I also maintain a home server setup, where I tinker with various self-hosted services and explore new technologies in my free time. This personal project allows me to experiment with infrastructure and security concepts outside of my professional work, satisfying my curiosity and keeping my technical skills sharp.
+# Outside of Work
+When I'm not diving into code or security research, I love exploring the Swiss outdoors. Whether it's cycling or skiing, the mountains here are my playground.
+
+I also enjoy tinkering with my home server setup, experimenting with self-hosted services, and trying out new tech projects in my free time.
