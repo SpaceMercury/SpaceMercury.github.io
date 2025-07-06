@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Pol Fuentes</title>
+    <link>https://fuentescamacho.ch/projects/</link>
+    <description>Recent content in Projects on Pol Fuentes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://fuentescamacho.ch/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Personal Website</title>
+      <link>https://fuentescamacho.ch/projects/personal-website/</link>
+      <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://fuentescamacho.ch/projects/personal-website/</guid>
+      <description>A modern, fast, and responsive personal website built with Hugo and the console theme. Features a clean terminal-inspired design with sections for about, projects, blog posts, and contact information.&#xA;Features Fast &amp;amp; Lightweight: Built with Hugo static site generator for optimal performance Responsive Design: Works perfectly on desktop, tablet, and mobile devices Terminal Theme: Clean, minimalist design inspired by terminal interfaces Dynamic Typing: Animated terminal commands on the homepage Project Showcase: Dedicated section for displaying projects with rich metadata Blog Integration: Built-in blogging functionality with clean post layouts SEO Optimized: Proper meta tags and structured data for search engines Key Components Custom Layouts: Specialized templates for different content types Responsive Grid: CSS Grid for flexible, responsive layouts Type Animation: Typed.</description>
+    </item>
+    <item>
+      <title>Fast GPU Traffic Classification</title>
+      <link>https://fuentescamacho.ch/projects/highspeedclassifier/</link>
+      <pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://fuentescamacho.ch/projects/highspeedclassifier/</guid>
+      <description>A high-throughput encrypted traffic classification system built using CUDA and DPDK, designed to process network flows at over 75 Gbps. Developed for real-time inference and cybersecurity research.&#xA;Overview This project focuses on classifying encrypted network traffic in real-time using GPU acceleration. It combines DPDK for high-speed packet ingestion with a custom neural network inference engine written in CUDA. The system targets cybersecurity and traffic engineering applications where line-rate classification is essential.</description>
+    </item>
+  </channel>
+</rss>

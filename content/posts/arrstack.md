@@ -1,6 +1,7 @@
 +++
 title = "Arrstack"
 date = 2025-04-07T22:53:44+02:00
+featured = true
 +++
 
 Need a fast and easy way to download Linux ISOs?  

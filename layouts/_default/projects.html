@@ -1,0 +1,203 @@
+{{ define "main" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects Layout</title>
+
+  <div class="projects-intro">
+    <h1>My Projects</h1>
+    <p>A collection of projects I've worked on, from web applications to system tools and everything in between. Each project represents a challenge solved and skills developed.</p>
+  </div>
+  
+  <style>
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .project-box {
+      background: #1e2029;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      border: 1px solid #2a2d3a;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      border-color: #bd7b00;
+    }
+    
+    .project-box:hover::before {
+      opacity: 1;
+    }
+    
+    .project-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #bd7b00, #ff9500);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    
+    .project-title:hover {
+      color: #bd7b00;
+    }
+    
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    
+    .project-date {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .tech-tag {
+      background: #2a2d3a;
+      color: #bd7b00;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .project-description {
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .project-link {
+      padding: 0.5rem 1rem;
+      background: #2a2d3a;
+      color: #bd7b00;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .project-link:hover {
+      background: #bd7b00;
+      color: #1e2029;
+    }
+    
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    
+    .projects-intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .projects-intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    
+    .projects-intro p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="projects-container">
+  {{ range (where .Site.RegularPages "Type" "projects") }}
+    <div class="project-box" onclick="window.location.href='{{ .Permalink }}'">
+      {{ with .Params.thumbnail }}
+        <img src="{{ . }}" alt="{{ $.Title }}" class="project-image">
+      {{ end }}
+      
+      <h2 class="project-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h2>
+      
+      <div class="project-meta">
+        <div class="project-date">
+          <span>📅 {{ .PublishDate.Format "Jan 2006" }}</span>
+        </div>
+        {{ with .Params.status }}
+          <span class="tech-tag">{{ . }}</span>
+        {{ end }}
+      </div>
+      
+      {{ with .Params.technologies }}
+        <div class="project-tech">
+          {{ range . }}
+            <span class="tech-tag">{{ . }}</span>
+          {{ end }}
+        </div>
+      {{ end }}
+      
+      <div class="project-description">
+        {{ .Summary }}
+      </div>
+      
+      <div class="project-links">
+        {{ with .Params.github }}
+          <a href="{{ . }}" class="project-link" target="_blank" rel="noopener">GitHub</a>
+        {{ end }}
+        {{ with .Params.demo }}
+          <a href="{{ . }}" class="project-link" target="_blank" rel="noopener">Live Demo</a>
+        {{ end }}
+        <a href="{{ .Permalink }}" class="project-link">Read More</a>
+      </div>
+    </div>
+  {{ end }}
+</div>
+
+</body>
+</html>
+{{ end }}

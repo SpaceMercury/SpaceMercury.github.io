@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pol Fuentes/projects/</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <link rel="stylesheet" href="https://fuentescamacho.ch/hugo-theme-console/css/terminal-0.7.4.min.css">
+    <link rel="stylesheet" href="https://fuentescamacho.ch/hugo-theme-console/css/animate-4.1.1.min.css">
+    <link rel="stylesheet" href="https://fuentescamacho.ch/hugo-theme-console/css/console.css">
+    
+
+
+      <link rel="icon" href="/favicon.ico" type="image/x-icon">
+      
+    
+      <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+       
+      <link href="https://fuentescamacho.ch/projects/index.xml" rel="alternate" type="application/rss+xml" title="Pol Fuentes" />
+    <meta property="og:title" content="Projects" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://fuentescamacho.ch/projects/" />
+
+
+<meta name="twitter:title" content="Projects"/>
+<meta name="twitter:description" content=""/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pol Fuentes</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    
+</head></head>
+<body class="terminal">
+    <div class="container">
+        <div class="terminal-nav">
+
+          <header class="terminal-logo">
+            <div class="logo terminal-prompt">
+              
+              
+          
+              <a href="https://fuentescamacho.ch/" class="no-style ">Pol Fuentes</a>:~# 
+              <a href='https://fuentescamacho.ch/projects'>projects</a>/</div>
+            
+            </header>
+          <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li><a href="https://fuentescamacho.ch/" typeof="ListItem">~/</a></li>
+                
+                <li><a href="https://fuentescamacho.ch/cv/" typeof="ListItem">cv/</a></li>
+                
+                <li><a href="https://fuentescamacho.ch/about/" typeof="ListItem">about/</a></li>
+                
+                <li><a href="https://fuentescamacho.ch/posts/" typeof="ListItem">posts/</a></li>
+                
+                <li><a href="https://fuentescamacho.ch/projects/" typeof="ListItem">projects/</a></li>
+                
+            </ul>
+          </nav>
+        </div>
+    </div>
+
+    <div class="container " >
+        
+<div class="projects-intro">
+    <h1>My Projects</h1>
+    <p>A collection of projects I've worked on, from web applications to system tools and everything in between. Each project represents a challenge solved and skills developed.</p>
+</div>
+
+<style>
+    .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .project-box {
+        background: #1e2029;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        border: 1px solid #2a2d3a;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .project-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        border-color: #bd7b00;
+    }
+    
+    .project-box:hover::before {
+        opacity: 1;
+    }
+    
+    .project-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #bd7b00, #ff9500);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .project-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #ffffff;
+        text-decoration: none;
+    }
+    
+    .project-title:hover {
+        color: #bd7b00;
+    }
+    
+    .project-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: #888;
+    }
+    
+    .project-date {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+    
+    .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .tech-tag {
+        background: #2a2d3a;
+        color: #bd7b00;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+    }
+    
+    .project-description {
+        line-height: 1.6;
+        color: #ccc;
+        margin-bottom: 1rem;
+    }
+    
+    .project-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .project-link {
+        padding: 0.5rem 1rem;
+        background: #2a2d3a;
+        color: #bd7b00;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+    
+    .project-link:hover {
+        background: #bd7b00;
+        color: #1e2029;
+    }
+    
+    .project-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+    
+    .projects-intro {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .projects-intro h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+        border-bottom: 3px solid rgb(189, 123, 0);
+        padding-bottom: 1px;
+        display: inline-block;
+    }
+    
+    .projects-intro p {
+        font-size: 1.1rem;
+        color: #ccc;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+</style>
+
+<div class="projects-container">
+    
+        <div class="project-box" onclick="window.location.href='https:\/\/fuentescamacho.ch\/projects\/personal-website\/'">
+            
+            
+            <h2 class="project-title">
+                <a href="https://fuentescamacho.ch/projects/personal-website/">Personal Website</a>
+            </h2>
+            
+            <div class="project-meta">
+                <div class="project-date">
+                    <span>📅 Jul 2025</span>
+                </div>
+                
+                    <span class="tech-tag">Active</span>
+                
+            </div>
+            
+            
+                <div class="project-tech">
+                    
+                        <span class="tech-tag">Hugo</span>
+                    
+                        <span class="tech-tag">HTML</span>
+                    
+                        <span class="tech-tag">CSS</span>
+                    
+                        <span class="tech-tag">JavaScript</span>
+                    
+                </div>
+            
+            
+            <div class="project-description">
+                A modern, fast, and responsive personal website built with Hugo and the console theme. Features a clean terminal-inspired design with sections for about, projects, blog posts, and contact information.
+Features Fast &amp; Lightweight: Built with Hugo static site generator for optimal performance Responsive Design: Works perfectly on desktop, tablet, and mobile devices Terminal Theme: Clean, minimalist design inspired by terminal interfaces Dynamic Typing: Animated terminal commands on the homepage Project Showcase: Dedicated section for displaying projects with rich metadata Blog Integration: Built-in blogging functionality with clean post layouts SEO Optimized: Proper meta tags and structured data for search engines Key Components Custom Layouts: Specialized templates for different content types Responsive Grid: CSS Grid for flexible, responsive layouts Type Animation: Typed.
+            </div>
+            
+            <div class="project-links">
+                
+                    <a href="https://github.com/spacemercury/spacemercury.github.io" class="project-link" target="_blank" rel="noopener">GitHub</a>
+                
+                
+                    <a href="https://fuentescamacho.ch" class="project-link" target="_blank" rel="noopener">Live Demo</a>
+                
+                <a href="https://fuentescamacho.ch/projects/personal-website/" class="project-link">Read More</a>
+            </div>
+        </div>
+    
+        <div class="project-box" onclick="window.location.href='https:\/\/fuentescamacho.ch\/projects\/highspeedclassifier\/'">
+            
+            
+            <h2 class="project-title">
+                <a href="https://fuentescamacho.ch/projects/highspeedclassifier/">Fast GPU Traffic Classification</a>
+            </h2>
+            
+            <div class="project-meta">
+                <div class="project-date">
+                    <span>📅 Jul 2025</span>
+                </div>
+                
+                    <span class="tech-tag">Finished</span>
+                
+            </div>
+            
+            
+                <div class="project-tech">
+                    
+                        <span class="tech-tag">CUDA</span>
+                    
+                        <span class="tech-tag">DPDK</span>
+                    
+                        <span class="tech-tag">C&#43;&#43;</span>
+                    
+                        <span class="tech-tag">Kafka</span>
+                    
+                        <span class="tech-tag">Nix</span>
+                    
+                        <span class="tech-tag">Grafana</span>
+                    
+                </div>
+            
+            
+            <div class="project-description">
+                A high-throughput encrypted traffic classification system built using CUDA and DPDK, designed to process network flows at over 75 Gbps. Developed for real-time inference and cybersecurity research.
+Overview This project focuses on classifying encrypted network traffic in real-time using GPU acceleration. It combines DPDK for high-speed packet ingestion with a custom neural network inference engine written in CUDA. The system targets cybersecurity and traffic engineering applications where line-rate classification is essential.
+            </div>
+            
+            <div class="project-links">
+                
+                    <a href="https://github.com/spacemercury/" class="project-link" target="_blank" rel="noopener">GitHub</a>
+                
+                
+                <a href="https://fuentescamacho.ch/projects/highspeedclassifier/" class="project-link">Read More</a>
+            </div>
+        </div>
+    
+</div>
+
+
+        <div class="footer">
+    <div class="footer-text">
+        Powered by <a href="https://gohugo.io/">Hugo</a> with the console 
+        <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Theme</a>. Made with ❤️ by <a href="https://github.com/spacemercury/">SpaceMercury</a>.
+    </div>
+    <div class="socials">
+        
+        <a href="https://github.com/spacemercury" target="_blank" rel="noopener" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        
+        
+        <a href="https://linkedin.com/in/pol-fuentes-camacho" target="_blank" rel="noopener" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        
+    </div>
+</div>
+
+<style>
+     
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;  
+        padding: 10px;
+    }
+    
+     
+    .socials {
+        font-size: 1.5em;
+    }
+    
+     
+    .socials a {
+        margin-left: 10px;
+    }
+</style>
+    </div>
+
+  </body>
+</html>
+

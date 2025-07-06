@@ -66,6 +66,151 @@
         margin-top: 20px;
     }
 
+    /* Portfolio/Projects section styling */
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .project-card {
+        background: #1e2029;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border: 1px solid #2a2d3a;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        border-color: #bd7b00;
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .project-card h3 {
+        margin-bottom: 1rem;
+        color: #ffffff;
+    }
+    
+    .project-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+    
+    .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .project-status {
+        background: #2a2d3a;
+        color: #bd7b00;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+    
+    .tech-tag {
+        background: #2a2d3a;
+        color: #bd7b00;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+    }
+    
+    .project-links {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    
+    .project-link-text {
+        padding: 0.4rem 0.8rem;
+        background: #2a2d3a;
+        color: #bd7b00;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+    }
+    
+    .project-card:hover .project-link-text {
+        background: #bd7b00;
+        color: #1e2029;
+    }
+    
+    .section-link {
+        text-align: center;
+        margin-top: 2rem;
+    }
+    
+    .section-link a {
+        color: #bd7b00;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .section-link a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Blog posts styling */
+    .post {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+    
+    .post:hover {
+        background: #1e2029;
+        border-color: #2a2d3a;
+        transform: translateY(-2px);
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .post .date {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .post h2 {
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+    
+    .post p {
+        color: #ccc;
+        line-height: 1.5;
+        margin: 0;
+    }
+
 
 
 </style>
@@ -135,14 +280,31 @@
     <h1>Featured Projects</h1>
     <div class="portfolio-grid">
         {{ range first 3 (where .Site.RegularPages "Type" "projects") }}
-        <div class="project-card">
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-            {{ with .Params.thumbnail }}
-                <img src="{{ . }}" alt="{{ $.Title }}" class="project-image">
-            {{ end }}
-            <p>{{ .Summary }}</p>
-            <a href="{{ .Permalink }}" class="button">View Project →</a>
-        </div>
+        <a href="{{ .Permalink }}" class="project-card">
+            <h3>{{ .Title }}</h3>
+            <div class="project-meta">
+                {{ with .Params.status }}
+                    <span class="project-status">{{ . }}</span>
+                {{ end }}
+                {{ with .Params.technologies }}
+                    <div class="project-tech">
+                        {{ range first 3 . }}
+                            <span class="tech-tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                {{ end }}
+            </div>
+            <p>{{ .Summary | truncate 80}}</p>
+            <div class="project-links">
+                {{ with .Params.github }}
+                    <span class="project-link-text">GitHub</span>
+                {{ end }}
+                {{ with .Params.demo }}
+                    <span class="project-link-text">Demo</span>
+                {{ end }}
+                <span class="project-link-text">Read More</span>
+            </div>
+        </a>
         {{ end }}
     </div>
     <p class="section-link"><a href="/projects/">View All Projects →</a></p>
@@ -153,14 +315,15 @@
     <h1>Latest Posts</h1>
     <div class="posts-list">
     {{ with .Site.GetPage "/posts" }}
-        {{ range first 3 (sort .Data.Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
-            <div class="post">
-                <p>
-                    <div class="date">{{ .PublishDate.Format "Jan. 2, 2006" }}</div>
-                    <h2><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h2>
-                    {{ .Summary  | truncate 150}}
-                </p>
-            </div>    
+        {{/* First try to get featured posts, if none exist, fall back to latest posts */}}
+        {{ $featuredPosts := where .Pages ".Params.featured" "==" true }}
+        {{ $postsToShow := cond (gt (len $featuredPosts) 0) $featuredPosts (first 3 (sort .Data.Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))) }}
+        {{ range first 3 $postsToShow }}
+            <a href="{{ .Permalink }}" class="post" title="{{ .Title }}">
+                <div class="date">{{ .PublishDate.Format "Jan. 2, 2006" }}</div>
+                <h2>{{ .Title }}</h2>
+                <p>{{ .Summary | truncate 80}}</p>
+            </a>    
         {{ end }}
     {{ end }}
     </div>

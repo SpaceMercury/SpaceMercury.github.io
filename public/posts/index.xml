@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on spacemercury.github.io</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on spacemercury.github.io</description>
+    <title>Posts on Pol Fuentes</title>
+    <link>https://fuentescamacho.ch/posts/</link>
+    <description>Recent content in Posts on Pol Fuentes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 10 Apr 2025 15:53:44 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://fuentescamacho.ch/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>QUIC Traffic, explained</title>
-      <link>http://localhost:1313/posts/quic/</link>
+      <link>https://fuentescamacho.ch/posts/quic/</link>
       <pubDate>Thu, 10 Apr 2025 15:53:44 +0200</pubDate>
-      <guid>http://localhost:1313/posts/quic/</guid>
+      <guid>https://fuentescamacho.ch/posts/quic/</guid>
       <description>In the constant race to speed up the web, Google quietly rolled out a new transport protocol in 2012—QUIC (Quick UDP Internet Connections). Over the years, it has evolved from an experimental feature to a backbone technology used by services like Chrome, YouTube, and Google Search.&#xA;QUIC replaces the traditional TCP + TLS stack with a single protocol built directly on top of UDP. This shift gives QUIC a major performance edge.</description>
     </item>
     <item>
       <title>Arrstack</title>
-      <link>http://localhost:1313/posts/arrstack/</link>
+      <link>https://fuentescamacho.ch/posts/arrstack/</link>
       <pubDate>Mon, 07 Apr 2025 22:53:44 +0200</pubDate>
-      <guid>http://localhost:1313/posts/arrstack/</guid>
+      <guid>https://fuentescamacho.ch/posts/arrstack/</guid>
       <description>Need a fast and easy way to download Linux ISOs?&#xA;The arrstack is a lightweight tool that lets you find, download, and manage Linux distributions in just a few clicks.&#xA;No clutter. No hassle. Just ISOs.&#xA;Jokes aside the arrstack is a set of aplications that connect together to provide a simple way to download and manage content.&#xA;Quick Setup Here is my docker compose file to run the stack:</description>
     </item>
   </channel>

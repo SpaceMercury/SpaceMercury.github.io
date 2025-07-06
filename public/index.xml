@@ -1,40 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>spacemercury.github.io</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on spacemercury.github.io</description>
+    <title>Pol Fuentes</title>
+    <link>https://fuentescamacho.ch/</link>
+    <description>Recent content on Pol Fuentes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Apr 2025 15:53:44 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://fuentescamacho.ch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Personal Website</title>
+      <link>https://fuentescamacho.ch/projects/personal-website/</link>
+      <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://fuentescamacho.ch/projects/personal-website/</guid>
+      <description>A modern, fast, and responsive personal website built with Hugo and the console theme. Features a clean terminal-inspired design with sections for about, projects, blog posts, and contact information.&#xA;Features Fast &amp;amp; Lightweight: Built with Hugo static site generator for optimal performance Responsive Design: Works perfectly on desktop, tablet, and mobile devices Terminal Theme: Clean, minimalist design inspired by terminal interfaces Dynamic Typing: Animated terminal commands on the homepage Project Showcase: Dedicated section for displaying projects with rich metadata Blog Integration: Built-in blogging functionality with clean post layouts SEO Optimized: Proper meta tags and structured data for search engines Key Components Custom Layouts: Specialized templates for different content types Responsive Grid: CSS Grid for flexible, responsive layouts Type Animation: Typed.</description>
+    </item>
+    <item>
+      <title>Fast GPU Traffic Classification</title>
+      <link>https://fuentescamacho.ch/projects/highspeedclassifier/</link>
+      <pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://fuentescamacho.ch/projects/highspeedclassifier/</guid>
+      <description>A high-throughput encrypted traffic classification system built using CUDA and DPDK, designed to process network flows at over 75 Gbps. Developed for real-time inference and cybersecurity research.&#xA;Overview This project focuses on classifying encrypted network traffic in real-time using GPU acceleration. It combines DPDK for high-speed packet ingestion with a custom neural network inference engine written in CUDA. The system targets cybersecurity and traffic engineering applications where line-rate classification is essential.</description>
+    </item>
     <item>
       <title>QUIC Traffic, explained</title>
-      <link>http://localhost:1313/posts/quic/</link>
+      <link>https://fuentescamacho.ch/posts/quic/</link>
       <pubDate>Thu, 10 Apr 2025 15:53:44 +0200</pubDate>
-      <guid>http://localhost:1313/posts/quic/</guid>
+      <guid>https://fuentescamacho.ch/posts/quic/</guid>
       <description>In the constant race to speed up the web, Google quietly rolled out a new transport protocol in 2012—QUIC (Quick UDP Internet Connections). Over the years, it has evolved from an experimental feature to a backbone technology used by services like Chrome, YouTube, and Google Search.&#xA;QUIC replaces the traditional TCP + TLS stack with a single protocol built directly on top of UDP. This shift gives QUIC a major performance edge.</description>
     </item>
     <item>
       <title>Arrstack</title>
-      <link>http://localhost:1313/posts/arrstack/</link>
+      <link>https://fuentescamacho.ch/posts/arrstack/</link>
       <pubDate>Mon, 07 Apr 2025 22:53:44 +0200</pubDate>
-      <guid>http://localhost:1313/posts/arrstack/</guid>
+      <guid>https://fuentescamacho.ch/posts/arrstack/</guid>
       <description>Need a fast and easy way to download Linux ISOs?&#xA;The arrstack is a lightweight tool that lets you find, download, and manage Linux distributions in just a few clicks.&#xA;No clutter. No hassle. Just ISOs.&#xA;Jokes aside the arrstack is a set of aplications that connect together to provide a simple way to download and manage content.&#xA;Quick Setup Here is my docker compose file to run the stack:</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/cv/</link>
+      <link>https://fuentescamacho.ch/cv/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/cv/</guid>
+      <guid>https://fuentescamacho.ch/cv/</guid>
       <description>Pol Fuentes Location: Switzerland&#xA;Email: pol.fuentescamacho@epfl.ch&#xA;Website: pol.com&#xA;LinkedIn: linkedin.com&#xA;GitHub: github.com&#xA;Education Master of Science in Computer Science and Cybersecurity ETH &amp;amp; EPFL | Zurich &amp;amp; Lausanne, Switzerland | 2024 - Ongoing&#xA;Relevant coursework: Decentralized Systems, Applied Data Analysis Bachelor of Science in Computer Science EPFL | Lausanne, Switzerland | 2021 - 2024&#xA;Relevant coursework: Data Structures, Computer Networks, Database Systems Work Experience Armasuisse | Lausanne, Switzerland | February 2025 - Ongoing</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://fuentescamacho.ch/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>Hi, I&amp;rsquo;m Pol A cybersecurity researcher and software engineer currently working in Switzerland. My journey in technology has taken me across different countries and cultures, shaping both my professional expertise and personal perspective.&#xA;Current Work I am currently a researcher at the Cyber Defence Campus (CYD Campus) within armasuisse, Switzerland&amp;rsquo;s federal agency for defense procurement and technology. My work centers on advanced cybersecurity research, where I tackle complex security challenges that require both technical depth and innovative approaches.</description>
+      <guid>https://fuentescamacho.ch/about/</guid>
+      <description>Hi, I&amp;rsquo;m Pol I&amp;rsquo;m a cybersecurity researcher and software engineer based in Switzerland.&#xA;What I Do I work as a researcher at the Cyber Defence Campus (CYD Campus), part of armasuisse, Switzerland&amp;rsquo;s federal agency for defense and technology.&#xA;One of my main areas of interest is Encrypted Traffic Analysis (ETA). My work includes:&#xA;Creating realistic encrypted network traffic datasets Capturing and processing data using high-speed network cards Writing low-level code with the Data Plane Development Kit (DPDK) for efficient packet handling Developing machine learning models for real-time traffic classification Building the entire solution with performance-critical C/C++ and CUDA to handle massive network speeds Leveraging tools like nix for reproducibility Outside of Work When I&amp;rsquo;m not diving into code or security research, I love exploring the Swiss outdoors.</description>
     </item>
   </channel>
 </rss>

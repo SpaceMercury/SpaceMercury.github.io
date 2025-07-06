@@ -4,54 +4,75 @@
     
         
         <url>
-            <loc>http://localhost:1313/posts/</loc>
+            <loc>https://fuentescamacho.ch/projects/personal-website/</loc>
+            <lastmod>2025-07-06T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>https://fuentescamacho.ch/</loc>
+            <lastmod>2025-07-06T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>https://fuentescamacho.ch/projects/</loc>
+            <lastmod>2025-07-06T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>https://fuentescamacho.ch/projects/highspeedclassifier/</loc>
+            <lastmod>2025-07-01T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+        <url>
+            <loc>https://fuentescamacho.ch/posts/</loc>
             <lastmod>2025-04-10T15:53:44+02:00</lastmod>
         </url>
         
     
         
         <url>
-            <loc>http://localhost:1313/posts/quic/</loc>
+            <loc>https://fuentescamacho.ch/posts/quic/</loc>
             <lastmod>2025-04-10T15:53:44+02:00</lastmod>
         </url>
         
     
         
         <url>
-            <loc>http://localhost:1313/</loc>
-            <lastmod>2025-04-10T15:53:44+02:00</lastmod>
-        </url>
-        
-    
-        
-        <url>
-            <loc>http://localhost:1313/posts/arrstack/</loc>
+            <loc>https://fuentescamacho.ch/posts/arrstack/</loc>
             <lastmod>2025-04-07T22:53:44+02:00</lastmod>
         </url>
         
     
         
         <url>
-            <loc>http://localhost:1313/cv/</loc>
+            <loc>https://fuentescamacho.ch/cv/</loc>
             <lastmod>2023-01-01T00:00:00+00:00</lastmod>
         </url>
         
     
         
         <url>
-            <loc>http://localhost:1313/about/</loc>
+            <loc>https://fuentescamacho.ch/about/</loc>
         </url>
         
     
         
         <url>
-            <loc>http://localhost:1313/categories/</loc>
+            <loc>https://fuentescamacho.ch/categories/</loc>
         </url>
         
     
         
         <url>
-            <loc>http://localhost:1313/tags/</loc>
+            <loc>https://fuentescamacho.ch/tags/</loc>
         </url>
         
     

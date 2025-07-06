@@ -1,0 +1,193 @@
+{{ define "main" }}
+<style>
+  .project-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #bd7b00;
+  }
+  
+  .project-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  .project-date {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  .project-status {
+    background: #2a2d3a;
+    color: #bd7b00;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tech-tag {
+    background: #2a2d3a;
+    color: #bd7b00;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  
+  .project-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .project-link {
+    padding: 0.7rem 1.5rem;
+    background: #2a2d3a;
+    color: #bd7b00;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .project-link:hover {
+    background: #bd7b00;
+    color: #1e2029;
+  }
+  
+  .project-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem 0;
+  }
+  
+  .project-content {
+    line-height: 1.7;
+    color: #ccc;
+  }
+  
+  .project-content h1,
+  .project-content h2,
+  .project-content h3 {
+    color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .project-content h2 {
+    border-bottom: 2px solid #bd7b00;
+    padding-bottom: 0.5rem;
+  }
+  
+  .project-content code {
+    background: #2a2d3a;
+    color: #bd7b00;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Roboto Mono', monospace;
+  }
+  
+  .project-content pre {
+    background: #1e2029;
+    border: 1px solid #2a2d3a;
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+  
+  .project-content pre code {
+    background: none;
+    padding: 0;
+    color: #ccc;
+  }
+  
+  .back-to-projects {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #2a2d3a;
+  }
+  
+  .back-link {
+    color: #bd7b00;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<article class="project-single">
+  <header class="project-header">
+    <h1 class="project-title">{{ .Title }}</h1>
+    
+    <div class="project-meta">
+      <div class="project-date">
+        <span>📅 {{ .PublishDate.Format "January 2006" }}</span>
+      </div>
+      {{ with .Params.status }}
+        <span class="project-status">{{ . }}</span>
+      {{ end }}
+    </div>
+    
+    {{ with .Params.technologies }}
+      <div class="project-tech">
+        {{ range . }}
+          <span class="tech-tag">{{ . }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
+    
+    <div class="project-links">
+      {{ with .Params.github }}
+        <a href="{{ . }}" class="project-link" target="_blank" rel="noopener">
+          🔗 GitHub Repository
+        </a>
+      {{ end }}
+      {{ with .Params.demo }}
+        <a href="{{ . }}" class="project-link" target="_blank" rel="noopener">
+          🚀 Live Demo
+        </a>
+      {{ end }}
+      {{ with .Params.website }}
+        <a href="{{ . }}" class="project-link" target="_blank" rel="noopener">
+          🌐 Website
+        </a>
+      {{ end }}
+    </div>
+  </header>
+  
+  {{ with .Params.thumbnail }}
+    <img src="{{ . }}" alt="{{ $.Title }}" class="project-image">
+  {{ end }}
+  
+  <div class="project-content">
+    {{ .Content }}
+  </div>
+  
+  <div class="back-to-projects">
+    <a href="/projects/" class="back-link">← Back to Projects</a>
+  </div>
+</article>
+
+{{ end }}
