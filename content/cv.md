@@ -7,7 +7,8 @@ description: "Professional background, skills, and experience"
 ## Pol Fuentes
 
 **Location:** Switzerland  
-**Email:** pol.fuentescamacho@epfl.ch  
+**Email:** pol.fuentescamacho@epfl.ch
+**Email** pfuentes@ethz.ch
 **Website:** [pol.com](https://spacemercury.github.io)  
 **LinkedIn:** [linkedin.com](https://linkedin.com/in/pol-fuentes-camacho)  
 **GitHub:** [github.com](https://github.com/spacemercury)
@@ -17,16 +18,16 @@ description: "Professional background, skills, and experience"
 ### Master of Science in Computer Science and Cybersecurity
 **ETH & EPFL** | Zurich & Lausanne, Switzerland | 2024 - Ongoing
 
-- Relevant coursework: Decentralized Systems, Applied Data Analysis 
+- Relevant coursework: Decentralized Systems, Applied Data Analysis, Security of Wireless Networks, Network Security, Big Data
 
 ### Bachelor of Science in Computer Science
 **EPFL** | Lausanne, Switzerland | 2021 - 2024
 
-- Relevant coursework: Data Structures, Computer Networks, Database Systems
+- Relevant coursework: Data Structures, Computer Networks, Database Systems, Operating Systems, Algorithms and Data Structures, Functional Programming, OOP
 
 ## Work Experience
 
-**Armasuisse** | Lausanne, Switzerland | February 2025 - Ongoing
+**Armasuisse** | Lausanne, Switzerland | February 2025 - July 2025
 
 - Led the design and development of a high-speed network traffic classification system using machine learning, achieving real-time classification at 75+ Gbps with over 90% accuracy.
 
@@ -37,8 +38,6 @@ description: "Professional background, skills, and experience"
 - Developed the data architecture using Apache Kafka, InfluxDB, and Grafana, enabling live monitoring and analysis.
 
 - Delivered a robust system capable of handling production-level loads, paving the way for AI-driven intrusion detection at the core network level.
-
-
 
 
 
