@@ -8,7 +8,6 @@ description: "Professional background, skills, and experience"
 
 **Location:** Switzerland  
 **Email:** pol.fuentescamacho@epfl.ch
-**Email** pfuentes@ethz.ch
 **Website:** [pol.com](https://spacemercury.github.io)  
 **LinkedIn:** [linkedin.com](https://linkedin.com/in/pol-fuentes-camacho)  
 **GitHub:** [github.com](https://github.com/spacemercury)

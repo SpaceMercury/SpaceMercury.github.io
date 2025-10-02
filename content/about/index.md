@@ -2,7 +2,7 @@
 I'm a cybersecurity researcher and software engineer based in Switzerland. 
 
 # What I Do
-I work as a researcher at the Cyber Defence Campus (CYD Campus), part of armasuisse, Switzerland's federal agency for defense and technology.
+I was recently working as a researcher at the Cyber Defence Campus (CYD Campus), part of armasuisse, Switzerland's federal agency for defense and technology.
 
 One of my main areas of interest is Encrypted Traffic Analysis (ETA). My work includes:
 
