@@ -1,9 +1,10 @@
 +++
 title = "DynamoDB in Go"
 date = 2025-07-18T00:00:00+00:00
-technologies = ["Go", ]
+technologies = ["Go", "Decentralized Systems", "Peer-to-Peer"]
 status = "Finished"
-github = "https://github.com/spacemercury/"
+featured = true
+featured_order = 2
 +++
 
 

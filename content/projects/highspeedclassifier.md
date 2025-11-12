@@ -3,7 +3,8 @@ title = "Fast GPU Traffic Classification"
 date = 2025-07-01T00:00:00+00:00
 technologies = ["CUDA", "DPDK", "C++", "Kafka", "Nix", "Grafana"]
 status = "Finished"
-github = "https://github.com/spacemercury/"
+featured = true
+featured_order = 1
 +++
 A high-throughput encrypted traffic classification system built using CUDA and DPDK, designed to process network flows at over 75 Gbps. Developed for real-time inference and cybersecurity research.
 

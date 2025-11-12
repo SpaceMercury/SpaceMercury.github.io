@@ -4,6 +4,8 @@ date = 2025-07-25T00:00:00+00:00
 technologies = ["Kotlin", "Android", "Cloud", "Figma", "Full-Stack"]
 status = "Finished"
 github = "https://github.com/EPFL-SwEnt-2024-LaStartUp/TripTracker" # add repo link if public
+featured = true
+featured_order = 3
 +++
 
 # TripTracker – A Social Exploration Companion
@@ -12,15 +14,11 @@ TripTracker is a mobile app we built as a team to make exploring cities on foot 
 
 ### With TripTracker, users can:
 
-Discover walking routes created by others.
-
-Record their own paths while adding photos, comments, and points of interest.
-
-Share itineraries with friends and follow their journeys.
-
-Save favorites for offline use, so they can keep exploring without internet.
-
-It’s part travel companion, part social platform — turning every walk into a shared experience.
+- Discover walking routes created by others.
+- Record their own paths while adding photos, comments, and points of interest.
+- Share itineraries with friends and follow their journeys.
+- Save favorites for offline use, so they can keep exploring without internet.
+- It’s part travel companion, part social platform — turning every walk into a shared experience.
 
 ## Teamwork and Collaboration
 
