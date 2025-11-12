@@ -279,7 +279,11 @@
 <section id="portfolio">
     <h1>Featured Projects</h1>
     <div class="portfolio-grid">
-        {{ range first 3 (where .Site.RegularPages "Type" "projects") }}
+        {{ $projects := where .Site.RegularPages "Type" "projects" }}
+        {{ $featured := sort (where $projects ".Params.featured" true) ".Params.featured_order" "asc" }}
+        {{ $others := sort (where $projects ".Params.featured" "ne" true) ".PublishDate" "desc" }}
+        {{ $combined := union $featured $others }}
+    {{ range first 2 $combined }}
         <a href="{{ .Permalink }}" class="project-card">
             <h3>{{ .Title }}</h3>
             <div class="project-meta">

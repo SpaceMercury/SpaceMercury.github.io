@@ -154,7 +154,11 @@
 <body>
 
 <div class="projects-container">
-  {{ range (where .Site.RegularPages "Type" "projects") }}
+  {{ $projects := where .Site.RegularPages "Type" "projects" }}
+  {{ $featured := sort (where $projects ".Params.featured" true) ".Params.featured_order" "asc" }}
+  {{ $others := sort (where $projects ".Params.featured" "ne" true) ".PublishDate" "desc" }}
+  {{ $combined := union $featured $others }}
+  {{ range $combined }}
     <div class="project-box" onclick="window.location.href='{{ .Permalink }}'">
       {{ with .Params.thumbnail }}
         <img src="{{ . }}" alt="{{ $.Title }}" class="project-image">
