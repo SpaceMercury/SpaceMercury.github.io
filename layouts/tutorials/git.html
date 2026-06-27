@@ -1,0 +1,413 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "css/tutorials.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/git-tutorial.css" | relURL }}">
+
+<main class="tutorials-shell network-course git-course" data-git-course>
+  <a class="course-back" href="{{ "tutorials/" | relURL }}"><span aria-hidden="true">←</span> All tutorials</a>
+
+  <header class="course-hero git-course-hero">
+    <div class="course-hero-copy">
+      <p class="tutorials-eyebrow"><span></span> Course 02 · Git</p>
+      <h1><span class="course-title-main">How Git grows</span><em>a history</em></h1>
+      <p class="tutorials-lede">Git becomes much easier when you stop imagining folders being copied and start seeing snapshots connected into a tree. This guide makes that tree visible.</p>
+      <div class="course-meta" aria-label="Lesson details">
+        <span>{{ .Params.level }}</span>
+        <span>{{ .Params.duration }}</span>
+        <span>5 experiments</span>
+        <span>No prerequisites</span>
+      </div>
+    </div>
+
+    <div class="git-hero-tree" aria-hidden="true">
+      <svg viewBox="0 0 430 300" role="img">
+        <path class="git-hero-line git-hero-trunk" d="M52 150H177" />
+        <path class="git-hero-line git-hero-main" d="M177 150C230 150 226 218 282 218H374" />
+        <path class="git-hero-line git-hero-feature" d="M177 150C230 150 226 82 282 82H374" />
+        <g class="git-hero-commit hero-commit-a" transform="translate(52 150)"><circle r="15"/><text y="4">A</text></g>
+        <g class="git-hero-commit hero-commit-b" transform="translate(177 150)"><circle r="15"/><text y="4">B</text></g>
+        <g class="git-hero-commit hero-commit-c" transform="translate(282 218)"><circle r="15"/><text y="4">C</text></g>
+        <g class="git-hero-commit hero-commit-d" transform="translate(282 82)"><circle r="15"/><text y="4">D</text></g>
+        <g class="git-hero-commit hero-commit-e" transform="translate(374 82)"><circle r="15"/><text y="4">E</text></g>
+        <g class="git-hero-commit hero-commit-f" transform="translate(374 218)"><circle r="15"/><text y="4">F</text></g>
+        <g class="git-hero-label hero-label-feature" transform="translate(330 38)"><rect width="82" height="25" rx="4"/><text x="41" y="17">feature</text></g>
+        <g class="git-hero-label hero-label-main" transform="translate(342 246)"><rect width="70" height="25" rx="4"/><text x="35" y="17">main</text></g>
+      </svg>
+      <p>snapshot → pointer → history</p>
+    </div>
+  </header>
+
+  <div class="course-tabs-wrap">
+    <div class="course-tabs" role="tablist" aria-label="Git tutorial views">
+      <button type="button" role="tab" id="tab-foundation" aria-controls="panel-foundation" aria-selected="true" tabindex="0" data-tab="foundation"><span>01</span> Foundation</button>
+      <button type="button" role="tab" id="tab-branches" aria-controls="panel-branches" aria-selected="false" tabindex="-1" data-tab="branches"><span>02</span> Branches</button>
+      <button type="button" role="tab" id="tab-integrate" aria-controls="panel-integrate" aria-selected="false" tabindex="-1" data-tab="integrate"><span>03</span> Integrate</button>
+      <button type="button" role="tab" id="tab-remotes" aria-controls="panel-remotes" aria-selected="false" tabindex="-1" data-tab="remotes"><span>04</span> Remotes</button>
+    </div>
+  </div>
+
+  <section class="course-panel" id="panel-foundation" role="tabpanel" aria-labelledby="tab-foundation" data-panel="foundation">
+    <article class="lesson-block git-outline-block">
+      <div class="lesson-index">01 · A map before the commands</div>
+      <div class="git-outline-heading">
+        <div class="lesson-copy">
+          <h2>Learn one picture in five moves.</h2>
+          <p>We will start with the value Git gives you, then reveal the machinery only when it answers a useful question. Every later concept is a small change to the same commit tree.</p>
+        </div>
+        <p class="git-outline-note">The destination: look at a graph and predict what a command will move.</p>
+      </div>
+
+      <ol class="git-course-outline" aria-label="Git course outline">
+        <li><span>01</span><div><strong>Save meaningful checkpoints</strong><small>Why history is more useful than files named final-final-2.</small></div><i>why</i></li>
+        <li><span>02</span><div><strong>Move changes through three places</strong><small>Working tree → staging area → repository.</small></div><i>local</i></li>
+        <li><span>03</span><div><strong>Grow more than one future</strong><small>Branches are movable labels, not copied projects.</small></div><i>branch</i></li>
+        <li><span>04</span><div><strong>Combine those futures</strong><small>Merge preserves the fork; rebase redraws one side.</small></div><i>history</i></li>
+        <li><span>05</span><div><strong>Exchange history with other repositories</strong><small>Fetch, integrate, and push without confusing local and remote.</small></div><i>share</i></li>
+      </ol>
+    </article>
+
+    <article class="lesson-block git-why-block">
+      <div class="lesson-index">02 · Why Git is useful</div>
+      <div class="lesson-grid">
+        <div class="lesson-copy">
+          <h2>Git lets a project have memory—and parallel futures.</h2>
+          <p>A commit gives a change a durable name and context. A branch lets you try an idea without disturbing another line of work. A remote lets several people exchange those histories.</p>
+          <p>The real payoff is not merely “backup.” It is the freedom to experiment, compare, explain, review, and recover.</p>
+        </div>
+        <div class="git-value-grid" aria-label="Ways Git helps a project">
+          <div><span>↺</span><strong>Recover</strong><small>Return to a known checkpoint.</small></div>
+          <div><span>⑂</span><strong>Experiment</strong><small>Grow an idea on its own branch.</small></div>
+          <div><span>◎</span><strong>Explain</strong><small>Record why each coherent change exists.</small></div>
+          <div><span>⇄</span><strong>Collaborate</strong><small>Exchange histories and review differences.</small></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson-block">
+      <div class="lesson-index">03 · Move one change</div>
+      <div class="lab-heading">
+        <div>
+          <h2>Git gives a change three local places to be.</h2>
+          <p>Edit a file, choose it for the next snapshot, then commit that snapshot to history. The staging area is the deliberate boundary between “everything I changed” and “the change I mean to record.”</p>
+        </div>
+        <p class="lab-hint">Use the controls in order.</p>
+      </div>
+
+      <div class="git-local-lab" data-local-lab>
+        <div class="git-lab-titlebar">
+          <div><span class="lab-status-dot"></span><strong>One file, three places</strong></div>
+          <span data-local-progress>Clean repository</span>
+        </div>
+
+        <div class="git-area-grid">
+          <section class="git-area git-area-worktree">
+            <header><span>01</span><div><strong>Working tree</strong><small>The files you can edit</small></div></header>
+            <div class="git-area-body">
+              <div class="git-file-card" data-worktree-file>
+                <span class="git-file-icon">JS</span><div><strong>app.js</strong><small data-worktree-state>matches commit A</small></div><i data-worktree-badge>clean</i>
+              </div>
+              <p data-worktree-empty hidden>Your files now match the new commit.</p>
+            </div>
+          </section>
+
+          <div class="git-area-arrow" aria-hidden="true"><span>git add</span>→</div>
+
+          <section class="git-area git-area-stage">
+            <header><span>02</span><div><strong>Staging area</strong><small>The proposed next snapshot</small></div></header>
+            <div class="git-area-body">
+              <div class="git-file-card git-file-staged" data-staged-file hidden>
+                <span class="git-file-icon">JS</span><div><strong>app.js</strong><small>button label updated</small></div><i>staged</i>
+              </div>
+              <p data-stage-empty>Nothing selected yet.</p>
+            </div>
+          </section>
+
+          <div class="git-area-arrow" aria-hidden="true"><span>git commit</span>→</div>
+
+          <section class="git-area git-area-repo">
+            <header><span>03</span><div><strong>Repository</strong><small>Committed snapshots</small></div></header>
+            <div class="git-area-body git-mini-history">
+              <div class="git-mini-commit" data-local-commit-b hidden><span>B</span><div><strong>Update button label</strong><small>main · HEAD</small></div></div>
+              <i class="git-mini-link" data-local-link hidden></i>
+              <div class="git-mini-commit"><span>A</span><div><strong>Initial interface</strong><small data-commit-a-label>main · HEAD</small></div></div>
+            </div>
+          </section>
+        </div>
+
+        <div class="git-lab-controls">
+          <button type="button" data-local-action="edit"><span>01</span>Edit file</button>
+          <button type="button" data-local-action="stage" disabled><span>02</span>Stage change</button>
+          <button type="button" data-local-action="commit" disabled><span>03</span>Commit snapshot</button>
+          <button type="button" class="git-reset-button" data-local-action="reset"><span>↺</span>Reset</button>
+        </div>
+        <div class="git-command-readout" aria-live="polite"><code data-local-command>$ git status</code><p data-local-message>Nothing to commit. Your working tree matches commit A.</p></div>
+      </div>
+    </article>
+
+    <article class="lesson-block git-anatomy-block">
+      <div class="lesson-index">04 · Read the graph</div>
+      <div class="lesson-grid">
+        <div class="lesson-copy">
+          <h2>A commit is a snapshot with a parent.</h2>
+          <p>Most commits point to one earlier commit. Follow those parent links and you get history. The long hexadecimal commit ID is Git's permanent name for that snapshot.</p>
+          <p>A branch such as <code>main</code> is only a movable label pointing at one commit. <code>HEAD</code> tells Git which branch—or occasionally which commit—you currently have checked out.</p>
+          <div class="git-focus-controls" aria-label="Commit graph explanation">
+            <button type="button" class="is-active" data-graph-focus="commit" aria-pressed="true">Commit</button>
+            <button type="button" data-graph-focus="branch" aria-pressed="false">Branch</button>
+            <button type="button" data-graph-focus="head" aria-pressed="false">HEAD</button>
+          </div>
+        </div>
+
+        <div class="git-anatomy-card" data-anatomy-card data-focus="commit">
+          <svg viewBox="0 0 620 260" role="img" aria-labelledby="anatomy-title anatomy-desc">
+            <title id="anatomy-title">Three commits on the main branch</title>
+            <desc id="anatomy-desc">Commit C points to B, which points to A. The main branch points to C, and HEAD points to main.</desc>
+            <path class="graph-edge" d="M112 132H282M322 132H492"/>
+            <g class="graph-node graph-node-a" transform="translate(92 132)"><circle r="20"/><text y="5">A</text></g>
+            <g class="graph-node graph-node-b" transform="translate(302 132)"><circle r="20"/><text y="5">B</text></g>
+            <g class="graph-node graph-node-c" transform="translate(512 132)"><circle r="20"/><text y="5">C</text></g>
+            <path class="graph-parent-arrow" d="M287 113l-14 16 14 16"/>
+            <path class="graph-parent-arrow" d="M497 113l-14 16 14 16"/>
+            <g class="graph-branch-tag" transform="translate(477 46)"><rect width="70" height="28" rx="4"/><text x="35" y="19">main</text><path d="M35 28V58"/></g>
+            <g class="graph-head-tag" transform="translate(478 192)"><rect width="68" height="28" rx="4"/><text x="34" y="19">HEAD</text><path d="M34 0V-40"/></g>
+            <text class="graph-hash" x="58" y="178">a18f…</text><text class="graph-hash" x="268" y="178">c03b…</text><text class="graph-hash" x="478" y="178">e71d…</text>
+          </svg>
+          <p data-anatomy-copy><strong>Commit C</strong> stores a project snapshot, metadata, and the identity of parent B.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson-block takeaway-block">
+      <div class="takeaway-number">The idea to keep</div>
+      <blockquote>Git stores snapshots. Parent links make history. Branches and HEAD are labels that move.</blockquote>
+      <button type="button" class="next-tab-button" data-open-tab="branches">Grow a second future <span aria-hidden="true">→</span></button>
+    </article>
+  </section>
+
+  <section class="course-panel" id="panel-branches" role="tabpanel" aria-labelledby="tab-branches" data-panel="branches" hidden>
+    <header class="panel-intro">
+      <p class="lesson-index">Branch simulator</p>
+      <h2>A branch is not another folder.</h2>
+      <p>It is a lightweight pointer to a commit. Creating one does not copy the project; committing while it is checked out simply moves that pointer forward.</p>
+    </header>
+
+    <div class="git-branch-lab" data-branch-lab>
+      <div class="git-lab-titlebar">
+        <div><span class="lab-status-dot"></span><strong data-branch-title>Start on main</strong></div>
+        <span data-branch-count>Step 0 of 4</span>
+      </div>
+      <p class="git-lab-description" data-branch-description>Two commits exist. main and HEAD both point to B.</p>
+      <div class="git-graph-stage">
+        <svg viewBox="0 0 780 340" role="img" aria-labelledby="branch-title-svg branch-desc-svg">
+          <title id="branch-title-svg">A Git history splitting into two branches</title>
+          <desc id="branch-desc-svg">The visualization changes as a feature branch is created, receives a commit, and main receives a different commit.</desc>
+          <path class="graph-edge branch-edge-base" d="M112 170H282"/>
+          <path class="graph-edge branch-edge-feature" data-branch-element="feature-edge" d="M322 160C380 145 397 94 472 94"/>
+          <path class="graph-edge branch-edge-main" data-branch-element="main-edge" d="M322 180C380 195 397 246 472 246"/>
+          <g class="graph-node" transform="translate(92 170)"><circle r="20"/><text y="5">A</text></g>
+          <g class="graph-node" transform="translate(302 170)"><circle r="20"/><text y="5">B</text></g>
+          <g class="graph-node graph-node-feature" data-branch-element="feature-node" transform="translate(492 94)"><circle r="20"/><text y="5">F1</text></g>
+          <g class="graph-node graph-node-main" data-branch-element="main-node" transform="translate(492 246)"><circle r="20"/><text y="5">C</text></g>
+          <g class="graph-branch-tag branch-main-at-b" data-branch-main-b transform="translate(267 226)"><rect width="70" height="28" rx="4"/><text x="35" y="19">main</text><path d="M35 0V-36"/></g>
+          <g class="graph-branch-tag branch-main-at-c" data-branch-element="main-label" transform="translate(457 286)"><rect width="70" height="28" rx="4"/><text x="35" y="19">main</text><path d="M35 0V-20"/></g>
+          <g class="graph-branch-tag graph-feature-tag" data-branch-element="feature-label-b" transform="translate(357 125)"><rect width="84" height="28" rx="4"/><text x="42" y="19">feature</text><path d="M0 14H-35"/></g>
+          <g class="graph-branch-tag graph-feature-tag" data-branch-element="feature-label-f" transform="translate(545 80)"><rect width="84" height="28" rx="4"/><text x="42" y="19">feature</text><path d="M0 14H-33"/></g>
+          <g class="graph-head-tag branch-head-main" data-branch-head-main transform="translate(264 62)"><rect width="76" height="28" rx="4"/><text x="38" y="19">HEAD</text><path d="M38 28V88"/></g>
+          <g class="graph-head-tag branch-head-feature" data-branch-element="head-feature" transform="translate(549 131)"><rect width="76" height="28" rx="4"/><text x="38" y="19">HEAD</text><path d="M0 14H-37"/></g>
+          <g class="graph-head-tag branch-head-main-c" data-branch-element="head-main-c" transform="translate(549 232)"><rect width="76" height="28" rx="4"/><text x="38" y="19">HEAD</text><path d="M0 14H-37"/></g>
+          <text class="git-graph-caption" x="92" y="307">older</text><text class="git-graph-caption" x="665" y="307">newer →</text>
+        </svg>
+      </div>
+      <div class="git-step-controls">
+        <button type="button" data-branch-prev disabled><span aria-hidden="true">←</span> Previous</button>
+        <div class="git-step-progress"><span data-branch-progress>main points to B</span><i><b data-branch-progress-bar></b></i></div>
+        <button type="button" class="git-primary-button" data-branch-next>Next: create branch <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="git-command-readout"><code data-branch-command>$ git log --oneline --graph</code><p data-branch-message>Nothing has diverged yet: A ← B, with main checked out.</p></div>
+    </div>
+
+    <div class="git-branch-meaning">
+      <article><span>what creation does</span><h3>Add one pointer</h3><p><code>git switch -c feature</code> creates a label at the current commit and makes HEAD refer to it.</p></article>
+      <article><span>what committing does</span><h3>Move that pointer</h3><p>The new commit points back to the previous one. Only the checked-out branch advances.</p></article>
+      <article><span>what switching does</span><h3>Restore a snapshot</h3><p>Git updates the working tree to match the commit named by the branch you switch to.</p></article>
+    </div>
+
+    <button type="button" class="next-tab-button" data-open-tab="integrate">Put the branches back together <span aria-hidden="true">→</span></button>
+  </section>
+
+  <section class="course-panel" id="panel-integrate" role="tabpanel" aria-labelledby="tab-integrate" data-panel="integrate" hidden>
+    <header class="panel-intro">
+      <p class="lesson-index">History laboratory</p>
+      <h2>Merge and rebase solve the same shape differently.</h2>
+      <p>Both can integrate work from one branch with another. The important difference is the history they leave behind.</p>
+    </header>
+
+    <div class="git-integrate-lab" data-integrate-lab>
+      <div class="git-mode-picker" role="group" aria-label="Choose integration strategy">
+        <button type="button" class="is-active" data-integrate-mode="merge" aria-pressed="true"><span>01</span><strong>Merge</strong><small>Join both histories</small></button>
+        <button type="button" data-integrate-mode="rebase" aria-pressed="false"><span>02</span><strong>Rebase</strong><small>Replay one history</small></button>
+      </div>
+
+      <article class="git-integrate-focus">
+        <div><p data-integrate-kicker>MERGE · preserve the fork</p><h3 data-integrate-title>Create a commit with two parents.</h3><p data-integrate-copy>The existing commits keep their identities. A new merge commit records that main and feature were joined here.</p></div>
+        <div class="git-integrate-traits" data-integrate-traits><span>Original commits stay</span><span>Topology stays visible</span><span>New merge commit</span></div>
+      </article>
+
+      <div class="git-integrate-stage" data-integrate-stage data-mode="merge">
+        <div class="git-before-graph">
+          <span class="git-stage-label">before</span>
+          <svg viewBox="0 0 500 300" role="img" aria-label="Two branches before integration">
+            <path class="graph-edge" d="M72 150H182"/><path class="graph-edge" d="M222 140C270 125 274 78 332 78H412"/><path class="graph-edge" d="M222 160C270 175 274 222 332 222"/>
+            <g class="graph-node" transform="translate(52 150)"><circle r="18"/><text y="5">A</text></g><g class="graph-node" transform="translate(202 150)"><circle r="18"/><text y="5">B</text></g>
+            <g class="graph-node graph-node-feature" transform="translate(352 78)"><circle r="18"/><text y="5">D</text></g><g class="graph-node graph-node-feature" transform="translate(432 78)"><circle r="18"/><text y="5">E</text></g>
+            <g class="graph-node graph-node-main" transform="translate(352 222)"><circle r="18"/><text y="5">C</text></g>
+            <g class="graph-branch-tag graph-feature-tag" transform="translate(390 23)"><rect width="84" height="27" rx="4"/><text x="42" y="18">feature</text><path d="M42 27V37"/></g>
+            <g class="graph-branch-tag" transform="translate(317 252)"><rect width="70" height="27" rx="4"/><text x="35" y="18">main</text><path d="M35 0V-10"/></g>
+          </svg>
+        </div>
+        <div class="git-operation-arrow"><span data-operation-command>git merge feature</span><b>→</b></div>
+        <div class="git-after-graph">
+          <span class="git-stage-label">after</span>
+          <svg class="git-merge-result" viewBox="0 0 620 300" role="img" aria-label="A merge commit joining two branches">
+            <path class="graph-edge" d="M62 150H152"/><path class="graph-edge" d="M192 140C235 125 240 78 292 78H362"/><path class="graph-edge" d="M192 160C235 175 240 222 292 222"/>
+            <path class="graph-edge graph-edge-result" d="M382 78C438 78 442 150 502 150M312 222C438 222 442 150 502 150"/>
+            <g class="graph-node" transform="translate(42 150)"><circle r="18"/><text y="5">A</text></g><g class="graph-node" transform="translate(172 150)"><circle r="18"/><text y="5">B</text></g>
+            <g class="graph-node graph-node-feature" transform="translate(312 78)"><circle r="18"/><text y="5">D</text></g><g class="graph-node graph-node-feature" transform="translate(382 78)"><circle r="18"/><text y="5">E</text></g>
+            <g class="graph-node graph-node-main" transform="translate(312 222)"><circle r="18"/><text y="5">C</text></g><g class="graph-node graph-node-result" transform="translate(522 150)"><circle r="21"/><text y="5">M</text></g>
+            <g class="graph-branch-tag" transform="translate(487 202)"><rect width="70" height="27" rx="4"/><text x="35" y="18">main</text><path d="M35 0V-31"/></g>
+          </svg>
+          <svg class="git-rebase-result" viewBox="0 0 620 300" role="img" aria-label="Feature commits replayed after main">
+            <path class="graph-edge graph-edge-result" d="M62 150H152M192 150H282M322 150H412M452 150H542"/>
+            <path class="graph-copy-arrow" d="M302 242C338 232 371 207 422 176M382 242C419 226 473 204 552 177"/>
+            <g class="graph-node" transform="translate(42 150)"><circle r="18"/><text y="5">A</text></g><g class="graph-node" transform="translate(172 150)"><circle r="18"/><text y="5">B</text></g>
+            <g class="graph-node graph-node-main" transform="translate(302 150)"><circle r="18"/><text y="5">C</text></g><g class="graph-node graph-node-result" transform="translate(432 150)"><circle r="19"/><text y="5">D′</text></g><g class="graph-node graph-node-result" transform="translate(562 150)"><circle r="19"/><text y="5">E′</text></g>
+            <g class="graph-node graph-node-old" transform="translate(302 252)"><circle r="16"/><text y="5">D</text></g><g class="graph-node graph-node-old" transform="translate(382 252)"><circle r="16"/><text y="5">E</text></g>
+            <text class="git-old-caption" x="246" y="288">old commits replaced by new copies</text>
+            <g class="graph-branch-tag graph-feature-tag" transform="translate(527 92)"><rect width="70" height="27" rx="4"/><text x="35" y="18">feature</text><path d="M35 27V39"/></g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="git-integrate-summary">
+        <div><span>What changes</span><strong data-integrate-change>A merge commit is added.</strong></div>
+        <div><span>What history says</span><strong data-integrate-story>“These two lines met here.”</strong></div>
+        <div><span>Good default when</span><strong data-integrate-when>The branch is shared or its shape matters.</strong></div>
+      </div>
+    </div>
+
+    <article class="lesson-block git-conflict-section">
+      <div class="lesson-index">Conflict experiment</div>
+      <div class="lab-heading">
+        <div><h2>A conflict is a question, not a catastrophe.</h2><p>Git can combine different files and different lines automatically. When two histories change the same region differently, Git stops and asks which meaning should survive.</p></div>
+        <p class="lab-hint">Resolve the highlighted line.</p>
+      </div>
+
+      <div class="git-conflict-lab" data-conflict-lab>
+        <div class="git-conflict-inputs">
+          <section><header><span>main</span><small>nav.js</small></header><pre><i>12</i>const label = <mark>"Explore"</mark>;</pre></section>
+          <div class="git-conflict-symbol" aria-hidden="true">×</div>
+          <section><header><span>feature</span><small>nav.js</small></header><pre><i>12</i>const label = <mark>"Discover"</mark>;</pre></section>
+        </div>
+        <div class="git-conflict-file">
+          <header><div><span class="lab-status-dot"></span><strong data-conflict-file-label>nav.js · conflict</strong></div><small data-conflict-state>needs a human decision</small></header>
+          <pre data-conflict-preview><span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; main</span>
+const label = "Explore";
+<span>=======</span>
+const label = "Discover";
+<span>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature</span></pre>
+          <div class="git-conflict-actions">
+            <button type="button" data-conflict-choice="main">Keep “Explore”</button>
+            <button type="button" data-conflict-choice="feature">Keep “Discover”</button>
+            <button type="button" data-conflict-choice="combine">Write “Explore &amp; Discover”</button>
+            <button type="button" data-conflict-reset disabled>Reset</button>
+          </div>
+          <div class="git-command-readout"><code data-conflict-command>$ git status</code><p data-conflict-message>Both branches changed line 12. Git has preserved both versions for you to resolve.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="lesson-block takeaway-block">
+      <div class="takeaway-number">The idea to keep</div>
+      <blockquote>Merge preserves the shape. Rebase rewrites one line into new commits. Conflicts can happen during either.</blockquote>
+      <button type="button" class="next-tab-button" data-open-tab="remotes">Connect the local and remote trees <span aria-hidden="true">→</span></button>
+    </article>
+  </section>
+
+  <section class="course-panel" id="panel-remotes" role="tabpanel" aria-labelledby="tab-remotes" data-panel="remotes" hidden>
+    <header class="panel-intro">
+      <p class="lesson-index">Repository exchange</p>
+      <h2>“Remote” means another repository, not the real one.</h2>
+      <p>Your repository is complete: it has commits, branches, and history. A remote such as <code>origin</code> is another repository whose state you can observe and exchange commits with.</p>
+    </header>
+
+    <div class="git-remote-lab" data-remote-lab>
+      <div class="git-lab-titlebar">
+        <div><span class="lab-status-dot"></span><strong data-remote-title>The remote is one commit ahead</strong></div>
+        <span data-remote-count>Step 0 of 4</span>
+      </div>
+
+      <div class="git-repositories">
+        <section class="git-repository-card git-local-repository">
+          <header><span>your computer</span><strong>local repository</strong></header>
+          <div class="git-repo-graph">
+            <div class="git-repo-row"><i class="repo-commit">A</i><b></b><i class="repo-commit">B</i><b data-local-edge-c hidden></b><i class="repo-commit repo-c" data-local-c hidden>C</i><b data-local-edge-d hidden></b><i class="repo-commit repo-d" data-local-d hidden>D</i></div>
+            <div class="git-repo-label repo-label-main" data-local-main>main → B</div>
+            <div class="git-repo-label repo-label-origin" data-origin-main>origin/main → B</div>
+          </div>
+          <p data-local-repo-copy>You have commits A and B. Your last observation of origin also points to B.</p>
+        </section>
+
+        <div class="git-remote-channel" aria-hidden="true"><span data-channel-label>network</span><i></i><b data-transfer-dot></b></div>
+
+        <section class="git-repository-card git-origin-repository">
+          <header><span>hosting service</span><strong>origin</strong></header>
+          <div class="git-repo-graph">
+            <div class="git-repo-row"><i class="repo-commit">A</i><b></b><i class="repo-commit">B</i><b></b><i class="repo-commit repo-c">C</i><b data-remote-edge-d hidden></b><i class="repo-commit repo-d" data-remote-d hidden>D</i></div>
+            <div class="git-repo-label repo-label-main" data-remote-main>main → C</div>
+          </div>
+          <p data-remote-repo-copy>Someone else pushed C. Nothing on your computer changes until you communicate.</p>
+        </section>
+      </div>
+
+      <div class="git-step-controls git-remote-controls">
+        <button type="button" data-remote-prev disabled><span aria-hidden="true">←</span> Previous</button>
+        <div class="git-step-progress"><span data-remote-progress>Local knowledge is stale</span><i><b data-remote-progress-bar></b></i></div>
+        <button type="button" class="git-primary-button" data-remote-next>Next: fetch <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="git-command-readout"><code data-remote-command>$ git status</code><p data-remote-message>Your repository cannot know C exists until it talks to origin.</p></div>
+    </div>
+
+    <div class="git-remote-definitions">
+      <article><code>git fetch</code><p>Download new commits and update remote-tracking labels such as <code>origin/main</code>. Your branch and files stay put.</p></article>
+      <article><code>git pull</code><p>Fetch, then immediately integrate into the current branch—using merge or rebase depending on configuration.</p></article>
+      <article><code>git push</code><p>Upload commits and ask the remote branch to move forward. It can refuse if the remote has history you lack.</p></article>
+    </div>
+
+    <article class="lesson-block git-workflow-block">
+      <div class="lesson-index">A calm everyday loop</div>
+      <div class="lesson-grid">
+        <div class="lesson-copy">
+          <h2>Inspect before you move history.</h2>
+          <p>A small habit prevents a surprising number of Git emergencies: ask where you are, make one coherent change, inspect it, then exchange history deliberately.</p>
+          <p>Later lessons can build on this picture to explain undoing with <code>restore</code>, <code>reset</code>, and <code>revert</code>; pausing with <code>stash</code>; naming releases with tags; and recovering with the reflog.</p>
+        </div>
+        <ol class="git-workflow-list">
+          <li><span>01</span><code>git status</code><small>Which branch? What changed?</small></li>
+          <li><span>02</span><code>git diff</code><small>Is the change what I intended?</small></li>
+          <li><span>03</span><code>git add …</code><small>Which pieces belong together?</small></li>
+          <li><span>04</span><code>git commit</code><small>What useful checkpoint did I make?</small></li>
+          <li><span>05</span><code>git fetch</code><small>What changed elsewhere?</small></li>
+          <li><span>06</span><code>git push</code><small>Share only after integrating safely.</small></li>
+        </ol>
+      </div>
+    </article>
+
+    <article class="lesson-block takeaway-block">
+      <div class="takeaway-number">The whole model</div>
+      <blockquote>Snapshots form a graph. Branches name positions. HEAD chooses your position. Fetch and push exchange the graph.</blockquote>
+      <button type="button" class="next-tab-button" data-open-tab="foundation">Run the experiments again <span aria-hidden="true">↺</span></button>
+    </article>
+  </section>
+</main>
+
+<script src="{{ "js/git-tutorial.js" | relURL }}" defer></script>
+{{ end }}

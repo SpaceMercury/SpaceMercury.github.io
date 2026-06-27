@@ -1,6 +1,6 @@
 ---
 title: "Tutorials"
-description: "Visual, interactive explanations of the systems underneath the software we use."
+description: "Visual, interactive explanations of things I have learned and wanted to understand more deeply."
 ---
 
-These are structured lessons rather than chronological posts: each track starts with an intuition, makes the system move, and then connects the idea to real protocols and tools.
+Interactive notes on ideas I wanted to understand more deeply. Each guide starts with an intuition, makes the idea move, and connects it to the real tools underneath.
