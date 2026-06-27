@@ -2,6 +2,7 @@
 public/
 
 # Keep full camera originals out of the website repository.
+photo-originals/
 static/photos/**/*.JPG
 static/photos/**/*.JPEG
 static/photos/**/*.jpg

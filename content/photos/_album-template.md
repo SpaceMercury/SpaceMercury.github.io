@@ -5,21 +5,18 @@ draft = true
 cover = "/photos/album-title/cover.webp"
 location = "City, Country"
 season = "Month Year"
+camera = "Fujifilm X-S20"
 summary = "A short one-line mood or subject for this album."
 
 [[images]]
-src = "/photos/album-title/thumbs/01.webp"
-full = "/photos/album-title/display/01.webp"
+src = "/photos/album-title/01.webp"
 alt = "Short factual description of the photo."
-caption = "Optional caption."
-meta = "Optional camera/lens note."
+caption = "Caption goes here."
 
 [[images]]
-src = "/photos/album-title/thumbs/02.webp"
-full = "/photos/album-title/display/02.webp"
+src = "/photos/album-title/02.webp"
 alt = "Short factual description of the photo."
-caption = "Optional caption."
-meta = "Optional camera/lens note."
+caption = "Caption goes here."
 +++
 
 Duplicate this file for a real album, rename it to `content/photos/<album-name>.md`, and remove `draft = true`.
@@ -27,7 +24,6 @@ Duplicate this file for a real album, rename it to `content/photos/<album-name>.
 Put exported web assets in `static/photos/<album-name>/`:
 
 - `cover.webp`: cropped album cover, around 900px wide.
-- `thumbs/*.webp`: grid thumbnails, around 600-900px on the long edge.
-- `display/*.webp`: click-to-open images, around 2000-2400px on the long edge.
+- `*.webp`: optimized gallery images, around 2000-2400px on the long edge.
 
 Keep full camera originals outside `static/` and outside git.
