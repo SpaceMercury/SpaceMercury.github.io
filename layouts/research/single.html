@@ -1,0 +1,83 @@
+{{ define "main" }}
+<style>
+  .research-single-header {
+    border-bottom: 2px solid #bd7b00;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .research-single-header h1 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .research-meta,
+  .research-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: #aaa;
+  }
+
+  .research-pill {
+    background: #2a2d3a;
+    color: #bd7b00;
+    border-radius: 4px;
+    padding: 0.25rem 0.55rem;
+    font-size: 0.85rem;
+  }
+
+  .research-content {
+    color: #ccc;
+    line-height: 1.75;
+    max-width: 780px;
+  }
+
+  .research-content h2,
+  .research-content h3 {
+    color: #ffffff;
+    margin-top: 2rem;
+  }
+
+  .research-back {
+    margin-top: 3rem;
+    border-top: 1px solid #2a2d3a;
+    padding-top: 1.5rem;
+  }
+
+  .research-back a {
+    color: #bd7b00;
+    text-decoration: none;
+  }
+
+  .research-back a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<article>
+  <header class="research-single-header">
+    <h1>{{ .Title }}</h1>
+    <div class="research-meta">
+      {{ with .Params.note_type }}<span class="research-pill">{{ . }}</span>{{ end }}
+      {{ with .Params.status }}<span class="research-pill">{{ . }}</span>{{ end }}
+      <span class="research-pill">{{ .Date.Format "Jan 2006" }}</span>
+    </div>
+    {{ with .Params.tools }}
+      <div class="research-tools" style="margin-top: 0.75rem;">
+        {{ range . }}
+          <span class="research-pill">{{ . }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
+  </header>
+
+  <div class="research-content">
+    {{ .Content }}
+  </div>
+
+  <div class="research-back">
+    <a href="/research/">Back to Research & Field Notes</a>
+  </div>
+</article>
+{{ end }}

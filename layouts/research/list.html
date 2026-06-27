@@ -1,0 +1,113 @@
+{{ define "main" }}
+<style>
+  .research-intro {
+    margin-bottom: 2rem;
+  }
+
+  .research-intro h1 {
+    color: #ffffff;
+    border-bottom: 3px solid #bd7b00;
+    display: inline-block;
+    padding-bottom: 2px;
+  }
+
+  .research-intro p {
+    color: #ccc;
+    max-width: 760px;
+    line-height: 1.7;
+  }
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .research-card {
+    display: block;
+    background: #1e2029;
+    border: 1px solid #2a2d3a;
+    border-radius: 8px;
+    padding: 1.25rem;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  }
+
+  .research-card:hover {
+    border-color: #bd7b00;
+    background: #242733;
+    color: inherit;
+    text-decoration: none;
+    transform: translateY(-3px);
+  }
+
+  .research-card-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    color: #aaa;
+    font-size: 0.85rem;
+  }
+
+  .research-kind,
+  .research-status,
+  .research-tool {
+    background: #2a2d3a;
+    color: #bd7b00;
+    border-radius: 4px;
+    padding: 0.2rem 0.45rem;
+  }
+
+  .research-card h2 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .research-card p {
+    color: #ccc;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+
+  .research-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .research-tool {
+    font-size: 0.78rem;
+  }
+</style>
+
+<section class="research-intro">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</section>
+
+<div class="research-grid">
+  {{ range sort .Pages "Date" "desc" }}
+    {{ if not .Params.private }}
+      <a href="{{ .RelPermalink }}" class="research-card">
+        <div class="research-card-top">
+          {{ with .Params.note_type }}<span class="research-kind">{{ . }}</span>{{ end }}
+          <span>{{ .Date.Format "2006" }}</span>
+        </div>
+        <h2>{{ .Title }}</h2>
+        <p>{{ .Summary | truncate 150 }}</p>
+        {{ with .Params.tools }}
+          <div class="research-tools">
+            {{ range first 4 . }}
+              <span class="research-tool">{{ . }}</span>
+            {{ end }}
+          </div>
+        {{ end }}
+      </a>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}

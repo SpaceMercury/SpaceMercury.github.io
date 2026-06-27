@@ -7,7 +7,7 @@ description: "Professional background, skills, and experience"
 ## Pol Fuentes
 
 **Location:** Switzerland  
-**Email:** pol.fuentescamacho@epfl.ch
+**Email:** pol.fuentescamacho@epfl.ch  
 **Website:** [pol.com](https://spacemercury.github.io)  
 **LinkedIn:** [linkedin.com](https://linkedin.com/in/pol-fuentes-camacho)  
 **GitHub:** [github.com](https://github.com/spacemercury)
@@ -25,6 +25,14 @@ description: "Professional background, skills, and experience"
 - Relevant coursework: Data Structures, Computer Networks, Database Systems, Operating Systems, Algorithms and Data Structures, Functional Programming, OOP
 
 ## Work Experience
+
+**Uber** | Host Network Team | Current
+
+- Spearheaded the design and deployment of a distributed end-to-end testing orchestrator using Go and Cadence, serving as the lead owner of testing infrastructure for Layer 4 network proxies and routing agents.
+
+- Engineered comprehensive test suites that simulate real-world production network flows, integrating Buildkite to continuously catch regressions and prevent production bugs across host network services.
+
+- Partnered with cross-functional teams to integrate deployment tooling, expanding the platform's reach by enabling other engineering teams to onboard their own use cases onto the testing infrastructure.
 
 **Armasuisse** | Lausanne, Switzerland | February 2025 - July 2025
 
