@@ -244,6 +244,46 @@
     .research-tool {
         font-size: 0.78rem;
     }
+
+    /* Photo album teaser */
+    .photo-home {
+        margin: 3rem 0;
+        padding: 2rem;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #1b1c22, #24232a);
+        color: #f2eee7;
+        border: 1px solid #363743;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .photo-home h1 {
+        color: #f8f3ea;
+        border-bottom: 3px solid #d08b5b;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2rem, 5vw, 4rem);
+        line-height: 0.98;
+        display: inline-block;
+    }
+
+    .photo-home p {
+        color: #e7e0d5;
+        max-width: 680px;
+        line-height: 1.7;
+    }
+
+    .photo-home-link {
+        display: inline-block;
+        margin-top: 0.75rem;
+        color: #d08b5b;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .photo-home-link:hover {
+        background: transparent;
+        color: #f3d0a9;
+        text-decoration: underline;
+    }
     
     /* Blog posts styling */
     .post {
@@ -384,6 +424,14 @@
         {{ end }}
     </div>
     <p class="section-link"><a href="/projects/">View All Projects →</a></p>
+</section>
+
+<section id="photos" class="photo-home">
+    <h1>Photo Album</h1>
+    <p>
+        Camera photos, travel fragments, and small visual essays. This section has its own quieter gallery style, separate from the terminal parts of the site.
+    </p>
+    <a class="photo-home-link" href="/photos/">Open Photo Album</a>
 </section>
 
 <section id="research">

@@ -1,0 +1,268 @@
+{{ define "main" }}
+<style>
+  .photo-world {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-top: 2rem;
+    padding: clamp(2rem, 5vw, 5rem) clamp(1.25rem, 5vw, 4rem);
+    background:
+      linear-gradient(180deg, #18191f 0%, #202026 48%, #16171c 100%);
+    color: #f2eee7;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .photo-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .photo-kicker {
+    margin: 0 0 1rem;
+    color: #d08b5b;
+    font-size: 0.8rem;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+  .photo-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: end;
+    margin-bottom: clamp(2.5rem, 7vw, 6rem);
+  }
+
+  .photo-hero h1 {
+    color: #f8f3ea;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3rem, 8vw, 6.4rem);
+    line-height: 0.94;
+    margin: 0;
+    border: 0;
+    padding: 0;
+  }
+
+  .photo-copy {
+    color: #e7e0d5;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    border-left: 3px solid #d08b5b;
+    padding-left: 1.25rem;
+  }
+
+  .photo-copy p {
+    color: #e7e0d5;
+    margin: 0 0 1rem;
+  }
+
+  .photo-copy code {
+    background: #302b2b;
+    color: #f3d0a9;
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+  }
+
+  .album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 300px));
+    gap: clamp(1rem, 2vw, 1.75rem);
+    justify-content: start;
+  }
+
+  .album-tile {
+    color: #f2eee7;
+    display: block;
+    text-decoration: none;
+    max-width: 300px;
+  }
+
+  .album-cover {
+    aspect-ratio: 4 / 5;
+    background: #111217;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .album-cover img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: saturate(0.92) contrast(1.04);
+    transition: transform 0.4s ease, filter 0.4s ease;
+  }
+
+  .album-placeholder {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    color: #f8f3ea;
+    background:
+      linear-gradient(145deg, rgba(208, 139, 91, 0.34), rgba(17, 18, 23, 0.96)),
+      repeating-linear-gradient(90deg, transparent 0 18px, rgba(255, 255, 255, 0.06) 18px 19px);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .album-tile:hover {
+    color: #f8f3ea;
+    background: transparent;
+    text-decoration: none;
+  }
+
+  .album-tile:hover .album-cover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.42);
+  }
+
+  .album-tile:hover img {
+    transform: scale(1.035);
+    filter: saturate(1.05) contrast(1.02);
+  }
+
+  .album-meta {
+    margin-top: 1rem;
+  }
+
+  .album-meta h2 {
+    color: #f8f3ea;
+    margin: 0 0 0.35rem;
+    font-size: 1.05rem;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  .album-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    color: #aeb5c2;
+    font-size: 0.86rem;
+  }
+
+  .album-line span {
+    color: #aeb5c2;
+  }
+
+  .photo-setup {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .photo-setup-card {
+    border: 1px solid #363743;
+    border-radius: 8px;
+    background: #22232b;
+    padding: 1.1rem;
+    color: #e7e0d5;
+    line-height: 1.6;
+  }
+
+  .photo-setup-card h2 {
+    margin: 0 0 0.65rem;
+    color: #f8f3ea;
+    font-size: 1rem;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  .photo-setup-card p {
+    color: #e7e0d5;
+    margin: 0;
+  }
+
+  .photo-setup-card code,
+  .empty-album code {
+    background: #302b2b;
+    color: #f3d0a9;
+    padding: 0.12rem 0.35rem;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+
+  .empty-album {
+    max-width: 760px;
+    border: 1px solid #363743;
+    border-radius: 8px;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background: #22232b;
+    color: #e7e0d5;
+    line-height: 1.7;
+  }
+
+  .empty-album p {
+    color: #e7e0d5;
+  }
+
+  @media (max-width: 760px) {
+    .photo-hero {
+      grid-template-columns: 1fr;
+    }
+
+    .photo-copy {
+      border-left: 0;
+      border-top: 3px solid #d08b5b;
+      padding-left: 0;
+      padding-top: 1rem;
+    }
+  }
+</style>
+
+<section class="photo-world">
+  <div class="photo-wrap">
+    <p class="photo-kicker">Personal archive</p>
+    <div class="photo-hero">
+      <h1>{{ .Title }}</h1>
+      <div class="photo-copy">
+        {{ .Content }}
+      </div>
+    </div>
+
+    <div class="photo-setup">
+      <div class="photo-setup-card">
+        <h2>Define albums here</h2>
+        <p>Create one Markdown file per album in <code>content/photos/</code>. Start by duplicating <code>content/photos/_album-template.md</code>.</p>
+      </div>
+      <div class="photo-setup-card">
+        <h2>Add photos here</h2>
+        <p>Put optimized camera exports in <code>static/photos/&lt;album-name&gt;/</code>. Use the same album name in the image URLs.</p>
+      </div>
+    </div>
+
+    {{ $albums := where .Pages ".Draft" "!=" true }}
+    {{ if gt (len $albums) 0 }}
+      <div class="album-grid">
+        {{ range sort $albums "Date" "desc" }}
+          <a class="album-tile" href="{{ .RelPermalink }}">
+            <div class="album-cover">
+              {{ with .Params.cover }}
+                <img src="{{ . }}" alt="{{ $.Title }}">
+              {{ else }}
+                <div class="album-placeholder">{{ .Title }}</div>
+              {{ end }}
+            </div>
+            <div class="album-meta">
+              <h2>{{ .Title }}</h2>
+              <div class="album-line">
+                {{ with .Params.location }}<span>{{ . }}</span>{{ end }}
+                {{ with .Params.season }}<span>{{ . }}</span>{{ end }}
+                {{ with .Params.images }}<span>{{ len . }} photos</span>{{ end }}
+              </div>
+            </div>
+          </a>
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="empty-album">
+        <p>The gallery is ready for the first camera album.</p>
+        <p>Example: put images in <code>static/photos/alps-2026/</code>, then define the album in <code>content/photos/alps-2026.md</code> with URLs like <code>/photos/alps-2026/01.webp</code>.</p>
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
