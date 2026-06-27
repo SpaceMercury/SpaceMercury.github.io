@@ -4,7 +4,9 @@
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-top: 2rem;
+    box-sizing: border-box;
     padding: clamp(2rem, 5vw, 5rem) clamp(1.25rem, 5vw, 4rem);
+    overflow-x: clip;
     background:
       linear-gradient(180deg, #18191f 0%, #202026 48%, #16171c 100%);
     color: #f2eee7;
@@ -12,6 +14,7 @@
   }
 
   .photo-wrap {
+    width: 100%;
     max-width: 1120px;
     margin: 0 auto;
   }
@@ -183,6 +186,7 @@
     padding: 0.12rem 0.35rem;
     border-radius: 4px;
     font-weight: 700;
+    overflow-wrap: anywhere;
   }
 
   .empty-album {
@@ -200,8 +204,28 @@
   }
 
   @media (max-width: 760px) {
+    .terminal-menu ul {
+      flex-wrap: wrap;
+      row-gap: 0.45rem;
+    }
+
+    .photo-world {
+      width: auto;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding: clamp(2rem, 8vw, 3rem) clamp(1rem, 4vw, 1.25rem);
+    }
+
     .photo-hero {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .photo-hero h1 {
+      font-size: clamp(2.6rem, 17vw, 4rem);
+      line-height: 1;
+      overflow-wrap: anywhere;
     }
 
     .photo-copy {
@@ -209,6 +233,25 @@
       border-top: 3px solid #d08b5b;
       padding-left: 0;
       padding-top: 1rem;
+      min-width: 0;
+      font-size: 0.98rem;
+    }
+
+    .photo-setup {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .photo-setup-card,
+    .empty-album {
+      min-width: 0;
+    }
+
+    .album-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .album-tile {
+      max-width: none;
     }
   }
 </style>
