@@ -1,10 +1,10 @@
 ---
 title: "How packets move through the internet"
-description: "A visual introduction to packets, loss, UDP, TCP, and QUIC."
-summary: "Follow one packet from A to B, lose it on purpose, and see how UDP, TCP, and QUIC respond."
+description: "A visual introduction to DNS, packets, routing, UDP, TCP, QUIC, BGP, and SCION."
+summary: "Resolve a name, follow one packet from A to B, lose it on purpose, and compare the protocols and routing systems around it."
 layout: "networking"
 level: "Beginner"
-duration: "12 min"
+duration: "18 min"
 topics:
   - Packets
   - Routing

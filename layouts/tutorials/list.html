@@ -1,22 +1,17 @@
 {{ define "main" }}
 <link rel="stylesheet" href="{{ "css/tutorials.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/git-tutorial.css" | relURL }}">
 
 <main class="tutorials-shell tutorials-hub">
-  <header class="tutorials-hero">
-    <div class="tutorials-eyebrow"><span></span> Interactive field guides</div>
-    <div class="tutorials-hero-grid">
-      <div>
-        <h1>Learn the system,<br><em>not the slogan.</em></h1>
-        <p class="tutorials-lede">{{ .Content }}</p>
-      </div>
-      <div class="tutorials-manifesto" aria-label="How tutorials are designed">
-        <p class="manifesto-label">Every guide follows the same loop</p>
-        <ol>
-          <li><span>01</span> Build an intuition</li>
-          <li><span>02</span> Make it move</li>
-          <li><span>03</span> Break it carefully</li>
-          <li><span>04</span> Inspect the real thing</li>
-        </ol>
+  <header class="tutorials-intro">
+    <p class="tutorials-eyebrow"><span></span> Visual field notes</p>
+    <div class="tutorials-intro-grid">
+      <h1>Concepts<br><em>visualized.</em></h1>
+      <div class="tutorials-intro-copy">
+        <div class="tutorials-lede">{{ .Content }}</div>
+        <div class="tutorials-intro-topics" aria-label="Topics covered">
+          <span>networks</span><span>version control</span><span>distributed systems</span>
+        </div>
       </div>
     </div>
   </header>
@@ -24,57 +19,98 @@
   <section class="tutorials-section" aria-labelledby="start-learning">
     <div class="section-heading-row">
       <div>
-        <p class="section-kicker">Available now</p>
-        <h2 id="start-learning">Start with networking</h2>
+        <p class="section-kicker">Interactive tutorials</p>
+        <h2 id="start-learning">Pick a thread and follow it</h2>
       </div>
-      <p class="section-note">No prerequisites · interactive</p>
+      <p class="section-note">Beginner-friendly · no prerequisites</p>
     </div>
 
-    <a class="featured-track" href="{{ "tutorials/networking/" | relURL }}">
-      <div class="featured-track-copy">
-        <div class="track-number">Course 01</div>
-        <h3>How packets move<br>through the internet</h3>
-        <p>Follow a packet from A to B, lose it on purpose, and watch UDP, TCP, and QUIC react differently.</p>
-        <span class="track-cta">Begin the visual guide <span aria-hidden="true">→</span></span>
-      </div>
-      <div class="track-diagram" aria-hidden="true">
-        <div class="diagram-endpoint diagram-a"><span>A</span><small>you</small></div>
-        <div class="diagram-route">
-          <span class="route-line"></span>
-          <span class="route-packet">01</span>
-          <i class="route-hop route-hop-one"></i>
-          <i class="route-hop route-hop-two"></i>
+    <div class="tutorial-track-list">
+      <a class="featured-track" href="{{ "tutorials/networking/" | relURL }}">
+        <div class="featured-track-copy">
+          <div class="track-number">Course 01</div>
+          <h3>How packets move<br>through the internet</h3>
+          <p>Follow a packet from A to B, lose it on purpose, and watch UDP, TCP, and QUIC react differently.</p>
+          <span class="track-cta">Begin the visual guide <span aria-hidden="true">→</span></span>
         </div>
-        <div class="diagram-endpoint diagram-b"><span>B</span><small>server</small></div>
-        <div class="diagram-caption">A tiny message. A surprisingly deep journey.</div>
-      </div>
-    </a>
+        <div class="track-diagram" aria-hidden="true">
+          <div class="diagram-endpoint diagram-a"><span>A</span><small>you</small></div>
+          <div class="diagram-route">
+            <span class="route-line"></span>
+            <span class="route-packet">01</span>
+            <i class="route-hop route-hop-one"></i>
+            <i class="route-hop route-hop-two"></i>
+          </div>
+          <div class="diagram-endpoint diagram-b"><span>B</span><small>server</small></div>
+          <div class="diagram-caption">A tiny message. A surprisingly deep journey.</div>
+        </div>
+      </a>
+
+      <a class="featured-track git-featured-track" href="{{ "tutorials/git/" | relURL }}">
+        <div class="featured-track-copy">
+          <div class="track-number">Course 02</div>
+          <h3>How Git grows<br>a history</h3>
+          <p>Build a commit tree, split it into branches, combine it again, and see what moves between local and remote.</p>
+          <span class="track-cta">Begin the visual guide <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="track-diagram" aria-hidden="true">
+          <svg class="git-track-svg" viewBox="0 0 520 280">
+            <path class="git-card-path git-card-trunk" pathLength="1" d="M78 140H154"/>
+            <path class="git-card-path git-card-feature" pathLength="1" d="M186 132C220 122 234 72 264 72H364"/>
+            <path class="git-card-path git-card-main" pathLength="1" d="M186 148C225 160 235 208 274 208"/>
+            <path class="git-card-path git-card-merge-feature" pathLength="1" d="M396 72C425 72 420 140 444 140"/>
+            <path class="git-card-path git-card-merge-main" pathLength="1" d="M306 208C390 208 400 140 444 140"/>
+
+            <g class="git-card-node git-card-node-base" transform="translate(62 140)"><circle r="16"/><text y="4">A</text></g>
+            <g class="git-card-node git-card-node-base" transform="translate(170 140)"><circle r="16"/><text y="4">B</text></g>
+            <g class="git-card-node git-card-node-feature" transform="translate(280 72)"><circle r="16"/><text y="4">D</text></g>
+            <g class="git-card-node git-card-node-feature" transform="translate(380 72)"><circle r="16"/><text y="4">E</text></g>
+            <g class="git-card-node git-card-node-main" transform="translate(290 208)"><circle r="16"/><text y="4">C</text></g>
+            <g class="git-card-node git-card-node-merge" transform="translate(460 140)"><circle r="19"/><text y="4">M</text></g>
+
+            <g class="git-card-label git-card-label-feature" transform="translate(338 25)"><rect width="84" height="27" rx="4"/><text x="42" y="18">feature</text></g>
+            <g class="git-card-label git-card-label-main" transform="translate(255 230)"><rect width="70" height="27" rx="4"/><text x="35" y="18">main</text></g>
+            <g class="git-card-label git-card-label-head" transform="translate(425 171)"><rect width="70" height="27" rx="4"/><text x="35" y="18">HEAD</text></g>
+          </svg>
+          <div class="diagram-caption">branch → build → merge</div>
+        </div>
+      </a>
+    </div>
   </section>
 
-  <section class="tutorials-section curriculum-section" aria-labelledby="curriculum-title">
+  <section class="tutorials-section learning-list-section" aria-labelledby="learning-list-title">
     <div class="section-heading-row">
       <div>
-        <p class="section-kicker">Curriculum</p>
-        <h2 id="curriculum-title">A connected map, not a pile of articles</h2>
+        <p class="section-kicker">Current &amp; planned</p>
+        <h2 id="learning-list-title">A growing list of things worth understanding</h2>
       </div>
+      <p class="section-note">More as I learn them</p>
     </div>
 
     <div class="curriculum-grid">
       <article class="curriculum-card curriculum-card-active">
-        <div class="curriculum-card-top"><span>01</span><span class="status-pill">In progress</span></div>
+        <div class="curriculum-card-top"><span>01</span><span class="status-pill">Available</span></div>
         <h3>Networking</h3>
         <p>Packets, protocols, routing, failure, and the tools that let us see the wire.</p>
         <div class="curriculum-path" aria-label="Networking learning path">
           <span>Packets</span><i>→</i><span>Transport</span><i>→</i><span>Tools</span>
         </div>
       </article>
+      <article class="curriculum-card curriculum-card-active">
+        <div class="curriculum-card-top"><span>02</span><span class="status-pill">Available</span></div>
+        <h3>Git</h3>
+        <p>Snapshots, pointers, branching histories, integration, conflicts, and remotes.</p>
+        <div class="curriculum-path" aria-label="Git learning path">
+          <span>Commits</span><i>→</i><span>Branches</span><i>→</i><span>Remotes</span>
+        </div>
+      </article>
       <article class="curriculum-card curriculum-card-planned">
-        <div class="curriculum-card-top"><span>02</span><span class="status-pill">Planned</span></div>
+        <div class="curriculum-card-top"><span>03</span><span class="status-pill">Planned</span></div>
         <h3>Distributed systems</h3>
         <p>Replication, consensus, clocks, and what happens when a machine disappears.</p>
       </article>
       <article class="curriculum-card curriculum-card-planned">
-        <div class="curriculum-card-top"><span>03</span><span class="status-pill">Planned</span></div>
+        <div class="curriculum-card-top"><span>04</span><span class="status-pill">Planned</span></div>
         <h3>Systems</h3>
         <p>Processes, memory, scheduling, and the machinery between code and hardware.</p>
       </article>

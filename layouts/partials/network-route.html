@@ -1,0 +1,47 @@
+<div class="network-stage">
+  <svg viewBox="0 0 900 330" role="img" aria-labelledby="{{ .prefix }}-stage-title {{ .prefix }}-stage-description">
+    <title id="{{ .prefix }}-stage-title">{{ .title }}</title>
+    <desc id="{{ .prefix }}-stage-description">{{ .description }}</desc>
+    <defs>
+      <linearGradient id="{{ .prefix }}RouteGlow" x1="0" x2="1">
+        <stop offset="0" stop-color="#72e3bd" stop-opacity=".75"/>
+        <stop offset=".5" stop-color="#7da7ff" stop-opacity=".45"/>
+        <stop offset="1" stop-color="#72e3bd" stop-opacity=".75"/>
+      </linearGradient>
+      <filter id="{{ .prefix }}PacketGlow" x="-100%" y="-100%" width="300%" height="300%">
+        <feGaussianBlur stdDeviation="5" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <path class="route-shadow" d="M125 165 C195 165 215 118 285 140 S390 198 450 165 S555 112 620 140 S735 165 775 165"/>
+    <path class="route-path" data-route-path style="stroke: url(#{{ .prefix }}RouteGlow)" d="M125 165 C195 165 215 118 285 140 S390 198 450 165 S555 112 620 140 S735 165 775 165"/>
+
+    <g class="network-node endpoint-node" transform="translate(80 165)">
+      <circle r="42"></circle><circle class="node-core" r="30"></circle>
+      <text text-anchor="middle" y="7">A</text>
+    </g>
+    <text class="node-label" x="80" y="234" text-anchor="middle">your device</text>
+    <text class="node-address" x="80" y="255" text-anchor="middle">192.0.2.8</text>
+
+    <g class="network-node router-node" transform="translate(285 140)">
+      <rect x="-26" y="-20" width="52" height="40" rx="9"></rect>
+      <path d="M-13 -6H13M-13 6H13M6 -12L15 -6 6 0M-6 0L-15 6 -6 12"></path>
+    </g>
+    <text class="hop-label" x="285" y="96" text-anchor="middle">router 01</text>
+
+    <g class="network-node router-node" transform="translate(620 140)">
+      <rect x="-26" y="-20" width="52" height="40" rx="9"></rect>
+      <path d="M-13 -6H13M-13 6H13M6 -12L15 -6 6 0M-6 0L-15 6 -6 12"></path>
+    </g>
+    <text class="hop-label" x="620" y="96" text-anchor="middle">router 02</text>
+
+    <g class="network-node endpoint-node" transform="translate(820 165)">
+      <circle r="42"></circle><circle class="node-core" r="30"></circle>
+      <text text-anchor="middle" y="7">B</text>
+    </g>
+    <text class="node-label" x="820" y="234" text-anchor="middle">server</text>
+    <text class="node-address" x="820" y="255" text-anchor="middle">203.0.113.42</text>
+
+    <g class="packet-layer" data-packet-layer></g>
+  </svg>
+</div>

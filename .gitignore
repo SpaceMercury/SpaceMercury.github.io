@@ -1,0 +1,13 @@
+# Hugo generated output. The site is built from source files.
+public/
+
+# Keep full camera originals out of the website repository.
+photo-originals/
+static/photos/**/*.JPG
+static/photos/**/*.JPEG
+static/photos/**/*.jpg
+static/photos/**/*.jpeg
+static/photos/**/*.RAF
+static/photos/**/*.raf
+static/photos/**/*.RAW
+static/photos/**/*.raw
