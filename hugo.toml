@@ -60,6 +60,14 @@ languageCode = "en-us"
   url = "about/"
 
   [[params.navlinks]]
+  name = "photos/"
+  url = "photos/"
+
+  [[params.navlinks]]
+  name = "tutorials/"
+  url = "tutorials/"
+
+  [[params.navlinks]]
   name = "research/"
   url = "research/"
 

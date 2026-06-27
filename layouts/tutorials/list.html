@@ -1,0 +1,84 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "css/tutorials.css" | relURL }}">
+
+<main class="tutorials-shell tutorials-hub">
+  <header class="tutorials-hero">
+    <div class="tutorials-eyebrow"><span></span> Interactive field guides</div>
+    <div class="tutorials-hero-grid">
+      <div>
+        <h1>Learn the system,<br><em>not the slogan.</em></h1>
+        <p class="tutorials-lede">{{ .Content }}</p>
+      </div>
+      <div class="tutorials-manifesto" aria-label="How tutorials are designed">
+        <p class="manifesto-label">Every guide follows the same loop</p>
+        <ol>
+          <li><span>01</span> Build an intuition</li>
+          <li><span>02</span> Make it move</li>
+          <li><span>03</span> Break it carefully</li>
+          <li><span>04</span> Inspect the real thing</li>
+        </ol>
+      </div>
+    </div>
+  </header>
+
+  <section class="tutorials-section" aria-labelledby="start-learning">
+    <div class="section-heading-row">
+      <div>
+        <p class="section-kicker">Available now</p>
+        <h2 id="start-learning">Start with networking</h2>
+      </div>
+      <p class="section-note">No prerequisites · interactive</p>
+    </div>
+
+    <a class="featured-track" href="{{ "tutorials/networking/" | relURL }}">
+      <div class="featured-track-copy">
+        <div class="track-number">Course 01</div>
+        <h3>How packets move<br>through the internet</h3>
+        <p>Follow a packet from A to B, lose it on purpose, and watch UDP, TCP, and QUIC react differently.</p>
+        <span class="track-cta">Begin the visual guide <span aria-hidden="true">→</span></span>
+      </div>
+      <div class="track-diagram" aria-hidden="true">
+        <div class="diagram-endpoint diagram-a"><span>A</span><small>you</small></div>
+        <div class="diagram-route">
+          <span class="route-line"></span>
+          <span class="route-packet">01</span>
+          <i class="route-hop route-hop-one"></i>
+          <i class="route-hop route-hop-two"></i>
+        </div>
+        <div class="diagram-endpoint diagram-b"><span>B</span><small>server</small></div>
+        <div class="diagram-caption">A tiny message. A surprisingly deep journey.</div>
+      </div>
+    </a>
+  </section>
+
+  <section class="tutorials-section curriculum-section" aria-labelledby="curriculum-title">
+    <div class="section-heading-row">
+      <div>
+        <p class="section-kicker">Curriculum</p>
+        <h2 id="curriculum-title">A connected map, not a pile of articles</h2>
+      </div>
+    </div>
+
+    <div class="curriculum-grid">
+      <article class="curriculum-card curriculum-card-active">
+        <div class="curriculum-card-top"><span>01</span><span class="status-pill">In progress</span></div>
+        <h3>Networking</h3>
+        <p>Packets, protocols, routing, failure, and the tools that let us see the wire.</p>
+        <div class="curriculum-path" aria-label="Networking learning path">
+          <span>Packets</span><i>→</i><span>Transport</span><i>→</i><span>Tools</span>
+        </div>
+      </article>
+      <article class="curriculum-card curriculum-card-planned">
+        <div class="curriculum-card-top"><span>02</span><span class="status-pill">Planned</span></div>
+        <h3>Distributed systems</h3>
+        <p>Replication, consensus, clocks, and what happens when a machine disappears.</p>
+      </article>
+      <article class="curriculum-card curriculum-card-planned">
+        <div class="curriculum-card-top"><span>03</span><span class="status-pill">Planned</span></div>
+        <h3>Systems</h3>
+        <p>Processes, memory, scheduling, and the machinery between code and hardware.</p>
+      </article>
+    </div>
+  </section>
+</main>
+{{ end }}

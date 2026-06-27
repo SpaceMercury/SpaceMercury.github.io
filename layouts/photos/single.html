@@ -1,0 +1,291 @@
+{{ define "main" }}
+<style>
+  .photo-album {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-top: 2rem;
+    padding: clamp(2rem, 5vw, 5rem) clamp(1.25rem, 5vw, 4rem);
+    background:
+      linear-gradient(180deg, #18191f 0%, #202026 48%, #16171c 100%);
+    color: #f2eee7;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .photo-album-wrap {
+    max-width: 1220px;
+    margin: 0 auto;
+  }
+
+  .album-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 360px);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: end;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+  }
+
+  .album-header h1 {
+    color: #f8f3ea;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.7rem, 7vw, 6rem);
+    line-height: 0.96;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .album-details {
+    color: #e7e0d5;
+    line-height: 1.7;
+    border-left: 3px solid #d08b5b;
+    padding-left: 1.25rem;
+  }
+
+  .album-details p {
+    color: #e7e0d5;
+    margin: 0 0 1rem;
+  }
+
+  .album-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .album-tags span {
+    border: 1px solid #3b3c47;
+    border-radius: 999px;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.82rem;
+    color: #e7e0d5;
+    background: #22232b;
+  }
+
+  .photo-masonry {
+    columns: 3 260px;
+    column-gap: 1rem;
+  }
+
+  .photo-frame {
+    break-inside: avoid;
+    margin: 0 0 1rem;
+  }
+
+  .photo-button {
+    appearance: none;
+    border: 1px solid rgba(248, 243, 234, 0.16);
+    background: #efe7d7;
+    border-radius: 8px;
+    padding: clamp(0.45rem, 1vw, 0.75rem);
+    display: block;
+    width: 100%;
+    cursor: zoom-in;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.34);
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 3px;
+    box-shadow: none;
+  }
+
+  .photo-caption {
+    color: #e7e0d5;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    margin: 0.65rem 0 0.25rem;
+  }
+
+  .photo-meta {
+    color: #aeb5c2;
+    font-size: 0.78rem;
+    margin: 0;
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(10, 10, 10, 0.92);
+  }
+
+  .lightbox.is-open {
+    display: flex;
+  }
+
+  .lightbox-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 94vw;
+    max-height: 90vh;
+    padding: clamp(0.75rem, 2vw, 1.5rem);
+    background: #efe7d7;
+    border: 1px solid rgba(255, 255, 255, 0.36);
+    border-radius: 8px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.58);
+  }
+
+  .lightbox-frame img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: calc(94vw - 3rem);
+    max-height: calc(90vh - 3rem);
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
+  .lightbox button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .album-back {
+    margin-top: 3rem;
+  }
+
+  .album-back a {
+    color: #d08b5b;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .album-back a:hover {
+    background: transparent;
+    color: #f3d0a9;
+    text-decoration: underline;
+  }
+
+  .empty-album {
+    max-width: 720px;
+    border: 1px solid #363743;
+    border-radius: 8px;
+    padding: 1.5rem;
+    color: #e7e0d5;
+    background: #22232b;
+    line-height: 1.7;
+  }
+
+  .empty-album p {
+    color: #e7e0d5;
+  }
+
+  .empty-album code {
+    background: #302b2b;
+    color: #f3d0a9;
+    padding: 0.12rem 0.35rem;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 760px) {
+    .album-header {
+      grid-template-columns: 1fr;
+    }
+
+    .album-details {
+      border-left: 0;
+      border-top: 3px solid #d08b5b;
+      padding-left: 0;
+      padding-top: 1rem;
+    }
+  }
+</style>
+
+<article class="photo-album">
+  <div class="photo-album-wrap">
+    <header class="album-header">
+      <h1>{{ .Title }}</h1>
+      <div class="album-details">
+        {{ .Content }}
+        <div class="album-tags">
+          {{ with .Params.location }}<span>{{ . }}</span>{{ end }}
+          {{ with .Params.season }}<span>{{ . }}</span>{{ end }}
+          {{ with .Params.images }}<span>{{ len . }} photos</span>{{ end }}
+        </div>
+      </div>
+    </header>
+
+    {{ with .Params.images }}
+      <div class="photo-masonry">
+        {{ range . }}
+          <figure class="photo-frame">
+            <button class="photo-button" type="button" data-photo-src="{{ .full | default .src }}" data-photo-alt="{{ .alt }}">
+              <img src="{{ .src }}" alt="{{ .alt }}" loading="lazy">
+            </button>
+            {{ with .caption }}<figcaption class="photo-caption">{{ . }}</figcaption>{{ end }}
+            {{ with .meta }}<p class="photo-meta">{{ . }}</p>{{ end }}
+          </figure>
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="empty-album">
+        <p>This album does not have images yet. Add optimized photos to <code>static/photos/{{ .File.BaseFileName }}/</code> and list them in the page front matter.</p>
+      </div>
+    {{ end }}
+
+    <div class="album-back">
+      <a href="/photos/">Back to photo album</a>
+    </div>
+  </div>
+</article>
+
+<div class="lightbox" id="photo-lightbox" aria-hidden="true">
+  <button type="button" id="photo-lightbox-close" aria-label="Close photo">x</button>
+  <div class="lightbox-frame">
+    <img src="" alt="" id="photo-lightbox-image">
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var lightbox = document.getElementById("photo-lightbox");
+    var image = document.getElementById("photo-lightbox-image");
+    var close = document.getElementById("photo-lightbox-close");
+
+    document.querySelectorAll("[data-photo-src]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        image.src = button.getAttribute("data-photo-src");
+        image.alt = button.getAttribute("data-photo-alt") || "";
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      image.src = "";
+    }
+
+    close.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+    });
+  });
+</script>
+{{ end }}
